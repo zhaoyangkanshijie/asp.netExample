@@ -154,6 +154,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\m\mAreaRegistration.cs" />
     <Compile Include="Controllers\Areas\m\Controllers\HomeController.cs" />
+    <Compile Include="Controllers\extends\WebApplication1AdaptiveAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
