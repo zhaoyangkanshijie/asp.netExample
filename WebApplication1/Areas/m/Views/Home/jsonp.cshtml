@@ -1,0 +1,29 @@
+﻿<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<p>jsonp</p>
+<h1>name</h1>
+<h2>email</h2>
+<script type="text/javascript">
+    // 第一种方式
+    $.ajax({
+        type: "get",
+        url: "http://localhost:34423/m/ProcessCallback", // 这个就是不同于当前域的一个URL地址，这里单纯演示，所以同域
+        dataType: "jsonp",
+        jsonp: "jsonpcallback",  // 指定回调函数，这里名字可以为其他任意你喜欢的，比如callback，不过必须与下一行的GET参数一致
+        data: "name=jxq&email=feichexia@yahoo.com.cn&jsonpcallback=?", // jsonpcallback与上面的jsonp值一致
+        success: function (json) {
+            $('h1').html(json.Name);
+            $('h1').html(json.Email);
+        },
+        error: function(err) {
+            alert(err);
+        }
+    });
+
+    // 第二种方式
+    $.getJSON("http://localhost:34423/m/ProcessCallback?name=xiaoqiang&email=jxqlovejava@gmail.com&jsonpcallback=?",
+        function (json) {
+            alert(json.Name);
+            alert(json.Email);
+        }
+    );
+</script>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace WebApplication1.Controllers.Areas.m.Controllers
 {
@@ -55,6 +56,29 @@ namespace WebApplication1.Controllers.Areas.m.Controllers
             }
             return View();
         }
-        
+
+        [ActionName("jsonp")]
+        public ActionResult jsonp()
+        {
+            return View();
+        }
+
+        public string ProcessCallback(string name, string email)
+        {
+            if (Request.QueryString != null)
+            {
+                string jsonpCallback = Request.QueryString["jsonpcallback"];
+                var user = new User
+                {
+                    Name = name,
+                    Email = email
+                };
+
+                return jsonpCallback + "(" + new JavaScriptSerializer().Serialize(user) + ")";
+            }
+
+            return "error";
+        }
+
     }
 }

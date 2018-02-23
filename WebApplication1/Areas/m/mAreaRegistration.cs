@@ -29,6 +29,20 @@ namespace WebApplication1.Areas.m
             );
 
             context.MapRoute(
+                "jsonp",
+                "m/jsonp",
+                new { controller = "home", action = "jsonp" },
+                new string[] { "WebApplication1.Controllers.Areas.m.Controllers" }
+            );
+
+            context.MapRoute(
+                "ProcessCallback",
+                "m/ProcessCallback",
+                new { controller = "home", action = "ProcessCallback" },
+                new string[] { "WebApplication1.Controllers.Areas.m.Controllers" }
+            );
+
+            context.MapRoute(
                 name: "mDefault",
                 url: "m/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
