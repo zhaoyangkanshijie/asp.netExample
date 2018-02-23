@@ -56,3 +56,17 @@ D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csprojResolve
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.dll
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.Entity.EF6.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Web.dll
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.dll
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.dll
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.xml
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.xml
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.xml
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.Entity.EF6.xml
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Web.xml
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.xml
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.xml
