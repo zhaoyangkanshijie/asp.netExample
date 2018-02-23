@@ -18,25 +18,29 @@ namespace WebApplication1
             routes.MapRoute(
                 "Home1", // 首页
                 "", // URL
-                new { controller = "home", action = "index" }
+                new { controller = "home", action = "index" },
+                new string[] { "WebApplication1.Controllers" }
             );
             routes.MapRoute(
                 "Home2", // 首页2
                 "index.html", // index.html
-                new { controller = "home", action = "index" }
+                new { controller = "home", action = "index" },
+                new string[] { "WebApplication1.Controllers" }
             );
             #endregion
 
             routes.MapRoute(
                 "about", // 首页
                 "about", // URL
-                new { controller = "home", action = "about" }
+                new { controller = "home", action = "about" },
+                new string[] { "WebApplication1.Controllers" }
             );
 
             routes.MapRoute(
                 "contact", // 首页
                 "contact", // URL
-                new { controller = "home", action = "contact" }
+                new { controller = "home", action = "contact" },
+                new string[] { "WebApplication1.Controllers" }
             );
 
             routes.MapRoute(

@@ -152,6 +152,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\m\mAreaRegistration.cs" />
+    <Compile Include="Controllers\Areas\m\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +172,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\m\Views\Web.config" />
+    <Content Include="Areas\m\Views\Home\Index.cshtml" />
+    <Content Include="Areas\m\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\m\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\m\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -198,6 +205,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\m\src\" />
+    <Folder Include="Areas\m\static\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
