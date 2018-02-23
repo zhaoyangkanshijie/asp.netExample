@@ -152,8 +152,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\m\Controllers\HomeController.cs" />
     <Compile Include="Areas\m\mAreaRegistration.cs" />
-    <Compile Include="Controllers\Areas\m\Controllers\HomeController.cs" />
     <Compile Include="Controllers\extends\WebApplication1AdaptiveAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,6 +179,11 @@
     <Content Include="Areas\m\Views\Shared\Error.cshtml" />
     <Content Include="Areas\m\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\m\static\js\decoder\Decoder.js" />
+    <Content Include="Areas\m\static\js\decoder\mp4.js" />
+    <Content Include="Areas\m\static\js\decoder\Player.js" />
+    <Content Include="Areas\m\static\js\decoder\stream.js" />
+    <Content Include="Areas\m\static\js\decoder\YUVCanvas.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -206,8 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\m\src\" />
-    <Folder Include="Areas\m\static\" />
+    <Folder Include="Areas\m\src\js\" />
+    <Folder Include="Areas\m\src\sass\" />
+    <Folder Include="Areas\m\static\css\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

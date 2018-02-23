@@ -1,0 +1,4 @@
+ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict -2 -f hls -hls_time 300 output.m3u8
+
+
+ffmpeg -i ip.mp4 -c:v libx264 -c:a aac -vprofile baseline ip_1.mp4
