@@ -2,3 +2,7 @@ ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict -2 -f hls -hls_time 300 output
 
 
 ffmpeg -i ip.mp4 -c:v libx264 -c:a aac -vprofile baseline ip_1.mp4
+
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
