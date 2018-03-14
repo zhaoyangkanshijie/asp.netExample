@@ -7,6 +7,7 @@
 3. 判断是否Wifi
 4. jsonp样例
 5. 移动端页面
+6. 单元测试
 
 ## 更多扩展
 1. mysql/mssql entities生成
