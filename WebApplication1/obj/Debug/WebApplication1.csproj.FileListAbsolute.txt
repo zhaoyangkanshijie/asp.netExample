@@ -3,6 +3,8 @@ D:\项目\asp.netExample\WebApplication1\bin\WebApplication1.dll.config
 D:\项目\asp.netExample\WebApplication1\bin\WebApplication1.dll
 D:\项目\asp.netExample\WebApplication1\bin\WebApplication1.pdb
 D:\项目\asp.netExample\WebApplication1\bin\Antlr3.Runtime.dll
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.dll
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -12,6 +14,9 @@ D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.ApplicationInsights.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.Entity.EF6.dll
+D:\项目\asp.netExample\WebApplication1\bin\MySql.Web.dll
 D:\项目\asp.netExample\WebApplication1\bin\Newtonsoft.Json.dll
 D:\项目\asp.netExample\WebApplication1\bin\System.Net.Http.Formatting.dll
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.Helpers.dll
@@ -24,6 +29,10 @@ D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.Deployment.dll
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.dll
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.Razor.dll
 D:\项目\asp.netExample\WebApplication1\bin\WebGrease.dll
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.dll
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.dll
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.xml
+D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.xml
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.Helpers.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.Mvc.xml
@@ -33,6 +42,8 @@ D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.Deployment.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.WebPages.Razor.xml
 D:\项目\asp.netExample\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.xml
+D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.xml
 D:\项目\asp.netExample\WebApplication1\bin\Newtonsoft.Json.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Net.Http.Formatting.xml
 D:\项目\asp.netExample\WebApplication1\bin\System.Web.Http.xml
@@ -42,6 +53,8 @@ D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.DependencyCollector.xm
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\EntityFramework.resources.dll
+D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.Mvc.resources.dll
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.Optimization.resources.dll
@@ -56,17 +69,3 @@ D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csprojResolve
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.pdb
-D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.dll
-D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.dll
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.dll
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.Entity.EF6.dll
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Web.dll
-D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.dll
-D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.dll
-D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.xml
-D:\项目\asp.netExample\WebApplication1\bin\EntityFramework.SqlServer.xml
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.xml
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Data.Entity.EF6.xml
-D:\项目\asp.netExample\WebApplication1\bin\MySql.Web.xml
-D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.Data.xml
-D:\项目\asp.netExample\WebApplication1\bin\WebMatrix.WebData.xml

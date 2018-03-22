@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Controllers.extends;
+using WebApplication1.Dal;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -13,6 +15,10 @@ namespace WebApplication1.Controllers
         [WebApplication1Adaptive]
         public ActionResult Index()
         {
+            UnitOfWork WebUnity = new UnitOfWork();
+            List<r_user> r_userlist = WebUnity.UserRepository.Get().ToList<r_user>();
+
+            ViewData["list"] = r_userlist;
             return View();
         }
 
