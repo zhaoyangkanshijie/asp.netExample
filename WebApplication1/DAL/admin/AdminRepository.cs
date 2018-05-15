@@ -31,6 +31,28 @@ namespace WebApplication1.DAL
             return context.Database.SqlQuery<r_admin>(su.ToString()).ToList<r_admin>();
         }
 
+        //注意一下两者的区别：list对应contain，class对应equals
+        //public List<PPTItem> getPPTItemByParentClassId(int parentClassId)
+        //{
+        //    List<PPTItem> result;
+        //    //StringBuilder su = new StringBuilder(string.Format(@"select pi.* from PPTItem pi inner join PPTClass pc on pi.classId = pc.id where pi.visible = 1 and pc.parentClassId = {0}", parentClassId.ToString()));
+        //    //result = context.Database.SqlQuery<PPTItem>(su.ToString()).ToList<PPTItem>();
+        //    List<int> classIds = context.PPTClasses.Where(t => t.parentClassId == parentClassId).Select(t => t.id).ToList();
+        //    result = context.PPTItems.Where(d => classIds.Contains(d.classId)).ToList<PPTItem>();
+
+        //    return result;
+        //}
+        
+        //public List<PPTItem> getPPTItemInIndexOther()
+        //{
+        //    List<PPTItem> result;
+        //    //StringBuilder su = new StringBuilder(@"select pi.* from PPTItem pi inner join PPTClass pc on pi.classId = pc.id where pi.visible = 1 and pc.classTip = 'other' and pc.parentClassId = 0");
+        //    //result = context.Database.SqlQuery<PPTItem>(su.ToString()).ToList<PPTItem>();
+        //    PPTClass PPTClass = context.PPTClasses.Where(t => t.classTip.Equals("other") && t.parentClassId == 0).First();
+        //    result = context.PPTItems.Where(d => d.classId.Equals(PPTClass.id) && d.visible).ToList<PPTItem>();
+        //    return result;
+        //}
+
         //public List<ArticlePart> GetArticleListByClassTip(int pageIndex, int pageSize, string classTip, int orderType, ref int pageCount)
         //{
         //    List<ArticlePart> result;
