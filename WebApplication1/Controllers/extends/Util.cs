@@ -6,6 +6,10 @@ using System.Web;
 using Quartz;
 using Quartz.Impl;
 using Quartz.net;
+using System.Text;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
 
 namespace WebApplication1.Controllers.extends
 {
@@ -68,7 +72,7 @@ namespace WebApplication1.Controllers.extends
             
             // 创建一个任务
             IJobDetail job = JobBuilder.Create<Job>()
-                .WithIdentity("MyJob", "group1")
+                .WithIdentity("MyJob", "group2")
                 .Build();
 
             // 创建一个触发器
@@ -82,7 +86,7 @@ namespace WebApplication1.Controllers.extends
 
             // 每天执行的触发器
             ITrigger trigger = TriggerBuilder.Create()
-               .WithIdentity("MyJob", "group1")
+               .WithIdentity("MyJob", "group2")
                .ForJob(job)
                .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(0, 0)) // 每天00:00执行一次
                 //.ModifiedByCalendar("myHolidays") // but not on holidays 设置那一天不知道
@@ -92,6 +96,81 @@ namespace WebApplication1.Controllers.extends
             scheduler.ScheduleJob(job, trigger);
 
             scheduler.Start();
+
+        }
+
+        /**
+         * AES对称加密解密
+         */
+        private static byte[] initIv(int blockSize)
+        {
+            byte[] iv = new byte[blockSize];
+            for (int i = 0; i < blockSize; i++)
+            {
+                iv[i] = (byte)0x0;
+            }
+            return iv;
+
+        }
+        static byte[] AES_IV = initIv(16);
+        public static string AesEncrypt(string encryptKey, string content, string charset)
+        {
+            Byte[] keyArray = Convert.FromBase64String(encryptKey);
+            Byte[] toEncryptArray = null;
+
+            if (string.IsNullOrEmpty(charset))
+            {
+                toEncryptArray = Encoding.UTF8.GetBytes(content);
+            }
+            else
+            {
+                toEncryptArray = Encoding.GetEncoding(charset).GetBytes(content);
+            }
+
+            RijndaelManaged rDel = new RijndaelManaged();
+            rDel.Key = keyArray;
+            rDel.Mode = CipherMode.CBC;
+            rDel.Padding = PaddingMode.PKCS7;
+            rDel.IV = AES_IV;
+
+            ICryptoTransform cTransform = rDel.CreateEncryptor(rDel.Key, rDel.IV);
+            Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+            return Convert.ToBase64String(resultArray);
+        }
+        public static string AesDencrypt(string encryptKey, string content, string charset)
+        {
+            Byte[] keyArray = Convert.FromBase64String(encryptKey);
+            Byte[] toEncryptArray = Convert.FromBase64String(content);
+
+            RijndaelManaged rDel = new RijndaelManaged();
+            rDel.Key = keyArray;
+            rDel.Mode = CipherMode.CBC;
+            rDel.Padding = PaddingMode.PKCS7;
+            rDel.IV = AES_IV;
+
+            ICryptoTransform cTransform = rDel.CreateDecryptor(rDel.Key, rDel.IV);
+            Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+
+            if (string.IsNullOrEmpty(charset))
+            {
+                return Encoding.UTF8.GetString(resultArray);
+            }
+            else
+            {
+                return Encoding.GetEncoding(charset).GetString(resultArray);
+            }
+        }
+
+        public static Dictionary<string, string> sessionGet(string encrypt)
+        {
+            //string session = "{\"userName\":\"wxp\",\"email\":\"a@qq.com\",\"timespan\":\"123456548979789\"}";
+            string key = "1bec493fda794aef4f1556321fbb2257";
+            //string encrypt = AesEncrypt(key, session, null);
+            string dencrypt = AesDencrypt(key, encrypt, null);
+            Dictionary<string, string> dic = new JavaScriptSerializer().Deserialize<Dictionary<string, string>>(dencrypt);
+            return dic;
         }
 
     }

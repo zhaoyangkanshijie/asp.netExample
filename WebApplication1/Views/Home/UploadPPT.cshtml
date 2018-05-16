@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "UploadPPT";
+}
+
+<h2>UploadPPT</h2>
+<p>限30M,限ppt,pptx</p>
+<p>enctype="multipart/form-data"加入这段才能拿到file</p>
+
+<form action="/home/UploadPPT2" method="post" enctype="multipart/form-data">
+    <input type="file" name="file1" />
+    <input type="submit" name="submit" />
+</form>

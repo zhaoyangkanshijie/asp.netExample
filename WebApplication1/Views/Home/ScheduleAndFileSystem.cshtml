@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "ScheduleAndFileSystem";
+}
+
+<h2>定时任务与文件系统</h2>
+<p>能看到本页面，说明你已经开启了一项定时任务（每天00:00，在/Content/test/a.txt追加一行时间）</p>
+<p>找到Controllers里extends下的Job.cs，可修改任务内容</p>
+<p>找到Controllers里extends下的Util.cs的ScheduleStart，可修改定时行为</p>
+<p>定时任务可写在controller的默认构造函数中，让服务器一运行旧存在定时任务</p>

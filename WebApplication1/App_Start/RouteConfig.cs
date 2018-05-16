@@ -27,19 +27,46 @@ namespace WebApplication1
                 new { controller = "home", action = "index" },
                 new string[] { "WebApplication1.Controllers" }
             );
+            routes.MapRoute(
+                "Home3", // 首页3
+                "home/index", // index.html
+                new { controller = "home", action = "index" },
+                new string[] { "WebApplication1.Controllers" }
+            );
             #endregion
 
             routes.MapRoute(
-                "about", // 首页
-                "about", // URL
+                "about", 
+                "home/about", 
                 new { controller = "home", action = "about" },
                 new string[] { "WebApplication1.Controllers" }
             );
 
             routes.MapRoute(
-                "contact", // 首页
-                "contact", // URL
+                "contact", 
+                "home/contact", 
                 new { controller = "home", action = "contact" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "ScheduleAndFileSystem",
+                "home/ScheduleAndFileSystem",
+                new { controller = "home", action = "ScheduleAndFileSystem" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "UploadPPT",
+                "home/UploadPPT",
+                new { controller = "home", action = "UploadPPT" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "UploadPPT2",
+                "home/UploadPPT2",
+                new { controller = "home", action = "UploadPPT2" },
                 new string[] { "WebApplication1.Controllers" }
             );
 

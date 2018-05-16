@@ -30,14 +30,14 @@ namespace WebApplication1.Areas.m
 
             context.MapRoute(
                 "jsonp",
-                "m/jsonp",
+                "m/home/jsonp",
                 new { controller = "home", action = "jsonp" },
                 new string[] { "WebApplication1.Controllers.Areas.m.Controllers" }
             );
 
             context.MapRoute(
                 "ProcessCallback",
-                "m/ProcessCallback",
+                "m/home/ProcessCallback",
                 new { controller = "home", action = "ProcessCallback" },
                 new string[] { "WebApplication1.Controllers.Areas.m.Controllers" }
             );

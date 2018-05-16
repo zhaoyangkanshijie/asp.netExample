@@ -14,8 +14,8 @@ namespace WebApplication1.Controllers
     {
         static HomeController()
         {
-            Util util = new Util();
-            util.ScheduleStart();
+            //Util util = new Util();
+            //util.ScheduleStart();
         }
 
         [ActionName("index")]
@@ -47,18 +47,25 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [ActionName("sf")]
+        [ActionName("scheduleAndFileSystem")]
         public ActionResult ScheduleAndFileSystem()
         {
             Util util = new Util();
             util.ScheduleStart();
 
-            return Content("ok");
+            return View();
+        }
+
+        [ActionName("uploadPPT")]
+        public ActionResult UploadPPT()
+        {
+            return View();
         }
 
         //上传附件ppt
-        [ActionName("uploadPPT")]
-        public ActionResult UploadPPT()
+        [ActionName("uploadPPT2")]
+        [HttpPost]
+        public ActionResult UploadPPT2()
         {
             //错误列表
             List<string> uploadErrors = new List<string>();
@@ -110,7 +117,7 @@ namespace WebApplication1.Controllers
             ViewData["uploadErrors"] = uploadErrors;
             ViewData["fileInfo"] = fileInfo;
             ViewData["state"] = result;
-            return View();
+            return View("uploadPPT2");
         }
 
         // 判断文件大小，不超过30MB  判断文件后缀，只允许ppt,pptx

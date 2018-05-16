@@ -69,3 +69,7 @@ D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csprojResolve
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\项目\asp.netExample\WebApplication1\bin\Common.Logging.Core.dll
+D:\项目\asp.netExample\WebApplication1\bin\Common.Logging.dll
+D:\项目\asp.netExample\WebApplication1\bin\Quartz.dll
+D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete

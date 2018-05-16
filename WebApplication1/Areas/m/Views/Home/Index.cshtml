@@ -1,4 +1,8 @@
-﻿<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js">
+﻿<h3>useragent</h3>
+<p>安卓7以上或IOS11以上？@ViewData["DeviceType"]</p>
+<p>下面注释是关于判断wifi状态和视频的播放方式（video或canvas逐帧渲染（需配合/static/js/decoder/*.js一起使用））</p>
+<a href="/m/home/jsonp">jsonp样例</a>
+@*<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js">
 @if (ViewData["DeviceType"] != null && ViewData["DeviceType"] != "ios11")
 {
     <style type="text/css">
@@ -94,4 +98,4 @@
             }
         </script>
         break;
-}
+}*@
