@@ -71,6 +71,48 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "aes",
+                "home/aes",
+                new { controller = "home", action = "aes" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "code",
+                "home/code",
+                new { controller = "home", action = "code" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "imgcode",
+                "home/imgcode",
+                new { controller = "home", action = "imgcode" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "ip",
+                "home/ip",
+                new { controller = "home", action = "ip" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "DeepClone",
+                "home/DeepClone",
+                new { controller = "home", action = "DeepClone" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "OpenerAndFileReader",
+                "home/OpenerAndFileReader",
+                new { controller = "home", action = "OpenerAndFileReader" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

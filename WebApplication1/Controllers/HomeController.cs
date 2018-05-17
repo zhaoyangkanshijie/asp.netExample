@@ -62,7 +62,65 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        //上传附件ppt
+        [ActionName("aes")]
+        public ActionResult AES()
+        {
+            string key = "1bec493fda794aef4f1556321fbb2257";
+            string content = "123456";
+            Util util = new Util();
+            string encrypt = Util.AesEncrypt(key, content, null);
+            string dencrypt = Util.AesDencrypt(key, encrypt, null);
+            ViewData["key"] = key;
+            ViewData["content"] = content;
+            ViewData["encrypt"] = encrypt;
+            ViewData["dencrypt"] = dencrypt;
+            return View();
+        }
+
+        [ActionName("ip")]
+        public ActionResult IP()
+        {
+            string ip = staticUtil.GetRealIp();
+            ViewData["ip"] = ip;
+            return View();
+        }
+
+        [ActionName("deepclone")]
+        public ActionResult DeepClone()
+        {
+            IList<string> list = new List<string>();
+            list.Add("a");
+            list.Add("b");
+            list.Add("c");
+            IList<string> list2 = staticUtil.DeepClone<string>(list);
+            ViewData["list"] = list;
+            ViewData["list2"] = list2;
+            return View();
+        }
+
+        [ActionName("openerAndFileReader")]
+        public ActionResult OpenerAndFileReader()
+        {
+            return View();
+        }
+
+        #region 图形验证码
+        [ActionName("code")]
+        public ActionResult Code()
+        {
+            ValidateCode vCode = new ValidateCode();
+            byte[] bytes = vCode.CreateValidateGraphic();
+            return File(bytes, @"image/jpeg");
+        }
+
+        [ActionName("imgCode")]
+        public ActionResult ImgCode()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 上传附件ppt
         [ActionName("uploadPPT2")]
         [HttpPost]
         public ActionResult UploadPPT2()
@@ -147,5 +205,6 @@ namespace WebApplication1.Controllers
         {
             return fileName.Substring(fileName.LastIndexOf('.') + 1);
         }
+        #endregion
     }
 }

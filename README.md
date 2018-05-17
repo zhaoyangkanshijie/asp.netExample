@@ -16,6 +16,11 @@
 12. 文件系统
 13. 文件上传
 14. AES对称加密，用于跨域session和cookie
+15. 深复制泛型list
+16. 获取IP地址
+17. 图形验证码
+18. 视频canvas ffps
+19. opener和fileReader
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝、银行

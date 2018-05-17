@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "DeepClone";
+    List<string> list = (List<string>)ViewData["list"];
+    List<string> list2 = (List<string>)ViewData["list2"];
+}
+
+<h2>DeepClone</h2>
+
+@for (int i = 0; i < list.Count; i++)
+{
+    <p>list:@list[i]</p>
+}
+@for (int i = 0; i < list2.Count; i++)
+{
+    <p>list:@list2[i]</p>
+}

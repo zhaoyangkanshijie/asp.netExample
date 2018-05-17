@@ -201,7 +201,9 @@
     <Compile Include="Controllers\extends\CustomExtensins.cs" />
     <Compile Include="Controllers\extends\Filter.cs" />
     <Compile Include="Controllers\extends\Job.cs" />
+    <Compile Include="Controllers\extends\staticUtil.cs" />
     <Compile Include="Controllers\extends\Util.cs" />
+    <Compile Include="Controllers\extends\ValidateCode.cs" />
     <Compile Include="Controllers\extends\WebApplication1AdaptiveAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\admin\AdminRepository.cs" />
@@ -273,6 +275,11 @@
     <Content Include="Views\Home\ScheduleAndFileSystem.cshtml" />
     <Content Include="Views\Home\UploadPPT.cshtml" />
     <Content Include="Views\Home\UploadPPT2.cshtml" />
+    <Content Include="Views\Home\AES.cshtml" />
+    <Content Include="Views\Home\ImgCode.cshtml" />
+    <Content Include="Views\Home\IP.cshtml" />
+    <Content Include="Views\Home\DeepClone.cshtml" />
+    <Content Include="Views\Home\OpenerAndFileReader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

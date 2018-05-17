@@ -162,7 +162,6 @@ namespace WebApplication1.Controllers.extends
                 return Encoding.GetEncoding(charset).GetString(resultArray);
             }
         }
-
         public static Dictionary<string, string> sessionGet(string encrypt)
         {
             //string session = "{\"userName\":\"wxp\",\"email\":\"a@qq.com\",\"timespan\":\"123456548979789\"}";
