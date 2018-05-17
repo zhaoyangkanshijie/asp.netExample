@@ -23,7 +23,7 @@ namespace WebApplication1.Areas.m
 
             context.MapRoute(
                 "mhome2",
-                "m/index",
+                "m/home/index",
                 new { controller = "home", action = "index" },
                 new string[] { "WebApplication1.Controllers.Areas.m.Controllers" }
             );
