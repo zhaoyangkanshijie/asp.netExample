@@ -104,6 +104,44 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [ActionName("smtp")]
+        public ActionResult SMTP()
+        {
+            string username = "用户名";
+            string password = "密码";
+            string domain = "服务器域名或ip";
+            string url = "服务器域名或ip";
+            string fromAddress = "发送地址";
+            string fromName = "发件人";
+            string subject = "标题";
+            string body = "内容";
+            string recipient = "收件人";
+            Util util = new Util();
+            //util.exchangeSendEmail(username, password, domain, url, subject, body, recipient);
+            util.smtpSendEmail(username, password, url, fromAddress, fromName, subject, body, recipient);
+
+            return Content("ok");
+        }
+
+        [ActionName("exchange")]
+        public ActionResult Exchange()
+        {
+            string username = "用户名";
+            string password = "密码";
+            string domain = "服务器域名或ip";
+            string url = "服务器域名或ip";
+            string fromAddress = "发送地址";
+            string fromName = "发件人";
+            string subject = "标题";
+            string body = "内容";
+            string recipient = "收件人";
+            Util util = new Util();
+            util.exchangeSendEmail(username, password, domain, url, subject, body, recipient);
+            //util.smtpSendEmail(username, password, url, fromAddress, fromName, subject, body, recipient);
+
+            return Content("ok");
+        }
+
         #region 图形验证码
         [ActionName("code")]
         public ActionResult Code()

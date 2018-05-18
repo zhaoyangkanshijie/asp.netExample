@@ -21,6 +21,7 @@
 17. 图形验证码
 18. 视频canvas ffps
 19. opener和fileReader
+20. smtp和exchange发送邮件
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝、银行

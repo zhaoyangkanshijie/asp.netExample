@@ -113,6 +113,20 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "smtp",
+                "home/smtp",
+                new { controller = "home", action = "smtp" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "exchange",
+                "home/exchange",
+                new { controller = "home", action = "exchange" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
