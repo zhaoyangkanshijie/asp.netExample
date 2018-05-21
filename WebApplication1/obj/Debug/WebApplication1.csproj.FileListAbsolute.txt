@@ -74,3 +74,8 @@ D:\项目\asp.netExample\WebApplication1\bin\Common.Logging.dll
 D:\项目\asp.netExample\WebApplication1\bin\Quartz.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\项目\asp.netExample\WebApplication1\bin\Microsoft.Exchange.WebServices.dll
+D:\项目\asp.netExample\WebApplication1\bin\Lucene.Net.dll
+D:\项目\asp.netExample\WebApplication1\bin\PanGu.dll
+D:\项目\asp.netExample\WebApplication1\bin\PanGu.HighLight.dll
+D:\项目\asp.netExample\WebApplication1\bin\PanGu.Lucene.Analyzer.dll
+D:\项目\asp.netExample\WebApplication1\bin\PanGu.xml

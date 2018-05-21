@@ -23,8 +23,8 @@
 19. opener和fileReader
 20. smtp和exchange发送邮件
 21. 反序列化字符串
+22. lucene全文搜索架构
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝、银行
 2. pdf导出
-3. lucene全文搜索

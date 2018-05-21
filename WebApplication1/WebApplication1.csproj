@@ -60,6 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\tpbranch\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -78,6 +81,15 @@
     <Reference Include="MySql.Web, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Web.6.9.11\lib\net45\MySql.Web.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\packages\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.HighLight">
+      <HintPath>..\packages\PanGu.HighLight.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.Lucene.Analyzer">
+      <HintPath>..\packages\PanGu.Lucene.Analyzer.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
       <HintPath>..\packages\Quartz\Quartz.dll</HintPath>
@@ -209,6 +221,10 @@
     <Compile Include="Controllers\extends\ValidateCode.cs" />
     <Compile Include="Controllers\extends\WebApplication1AdaptiveAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\lucene\IndexManager.cs" />
+    <Compile Include="Controllers\lucene\LucenePGHelper.cs" />
+    <Compile Include="Controllers\lucene\SearchByLucene.cs" />
+    <Compile Include="Controllers\lucene\SearchUnit.cs" />
     <Compile Include="DAL\admin\AdminRepository.cs" />
     <Compile Include="DAL\article\ArticleRepository.cs" />
     <Compile Include="DAL\EntityRepository.cs" />
