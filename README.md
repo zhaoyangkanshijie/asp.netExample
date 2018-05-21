@@ -22,6 +22,7 @@
 18. 视频canvas ffps
 19. opener和fileReader
 20. smtp和exchange发送邮件
+21. 反序列化字符串
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝、银行

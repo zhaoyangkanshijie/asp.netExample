@@ -59,3 +59,4 @@ D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.c
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.csproj.CopyComplete
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.dll
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.pdb
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\Microsoft.Exchange.WebServices.dll

@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Deserialize";
+    Dictionary<string, string> dic = ViewData["dic"] as Dictionary<string, string>;
+}
+
+<h2>Deserialize</h2>
+@foreach(var item in dic)
+{
+    <p>@item.Key : @item.Value</p>
+}

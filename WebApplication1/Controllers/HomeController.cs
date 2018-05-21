@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using WebApplication1.Controllers.extends;
 using WebApplication1.Dal;
 using WebApplication1.Models;
@@ -140,6 +141,15 @@ namespace WebApplication1.Controllers
             //util.smtpSendEmail(username, password, url, fromAddress, fromName, subject, body, recipient);
 
             return Content("ok");
+        }
+
+        [ActionName("deserialize")]
+        public ActionResult Deserialize()
+        {
+            string str = "{\"userName\":\"sysadmin\",\"email\":\"xxx@xxx.com\",\"other\":\"remenber to use EncodeURIComponent()\",\"timespan\":\"" + DateTime.Now.ToString() + "\"}";
+            Dictionary<string, string> dic = new JavaScriptSerializer().Deserialize<Dictionary<string, string>>(str);
+            ViewData["dic"] = dic;
+            return View();
         }
 
         #region 图形验证码

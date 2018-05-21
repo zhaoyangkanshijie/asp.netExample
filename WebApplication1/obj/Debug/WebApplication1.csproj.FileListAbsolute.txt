@@ -73,3 +73,4 @@ D:\项目\asp.netExample\WebApplication1\bin\Common.Logging.Core.dll
 D:\项目\asp.netExample\WebApplication1\bin\Common.Logging.dll
 D:\项目\asp.netExample\WebApplication1\bin\Quartz.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
+D:\项目\asp.netExample\WebApplication1\bin\Microsoft.Exchange.WebServices.dll
