@@ -1,0 +1,40 @@
+.header-search-autocomplete {
+    
+    &>ul{
+        position: absolute!important;
+        top: 36px!important;
+        left: 0px!important;
+        width: 480px!important;
+        height: 128px;
+        background: #FFFFFF;
+        border: 1px solid #0096FF;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);
+        z-index: 99;
+
+        &>li{
+            width: 100%;
+            height: 32px;
+            background-color: #FFFFFF;
+
+            &:hover{
+                background-color: #F2F9FF;
+            }
+
+            &>a{
+                font-size: 14px;
+                line-height: 32px;
+                color: #666666;
+                text-align: left;
+                margin-left: 8px;
+            }
+
+            &>div{
+                font-size: 14px;
+                line-height: 32px;
+                color: #666666;
+                text-align: left;
+                margin-left: 8px;
+            }
+        }
+    }
+}

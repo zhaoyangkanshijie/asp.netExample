@@ -1,0 +1,244 @@
+.product-show{
+    width: 100%;
+    min-width: 1200px;
+
+    &-list{
+        width: 100%;
+
+        &-item{
+            width: 100%;
+            margin: 40px 0 0 0;
+
+            &-header{
+                width: 100%;
+                height: 48px;
+
+                &-title{
+                    font-size: 24px;
+                    line-height: 24px;
+                    color: #333333;
+                    float: left;
+                }
+
+                &-nav{
+                    float: right;
+                    margin: 10px 0 0 0;
+
+                    &-item{
+                        font-size: 14px;
+                        line-height: 24px;
+                        color: #666666;
+                        padding: 0 8px;
+
+                        &:first-child{
+                            padding: 0 8px 0 0;
+                        }
+
+                        &:last-child{
+                            padding: 0 0 0 8px;
+                        }
+                    }
+                }
+            }
+
+            &-imglink{
+                display: block;
+            }
+
+            &-banner{
+                display: block;
+                width: 1200px;
+                height: 288px;
+            }
+
+            &-presentation{
+                width: 100%;
+                height: 648px;
+                margin: 16px 0 0 0;
+
+                &-each{
+                    width: 294px;
+                    height: 320px;
+                    background-color: #FFFFFF;
+                    float: left;
+                    position: relative;
+
+                    &:hover{
+                        box-shadow: 0 8px 10px 0 rgba(0,0,0,0.20);
+                    }
+
+                    &:nth-of-type(n+2):nth-of-type(-n+4){
+                        margin-left: 8px;
+                    }
+
+                    &:nth-of-type(-n+4){
+                        margin-bottom: 8px;
+                    }
+
+                    &:nth-of-type(n+6){
+                        margin-left: 8px;
+                    }
+
+                    &-link{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &-container{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        &-supper{
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+
+                        &-img{
+                            display: block;
+                            width: 150px;
+                            height: 150px;
+                            margin: 26px auto 0 auto;
+                        }
+
+                        &-title{
+                            font-size: 14px;
+                            color: #666666;
+                            line-height: 20px;
+                            text-align: center;
+                            margin: 29px 0 0 0;
+                        }
+
+                        &-price{
+                            margin: 29px 0 0 0;
+                            position: relative;
+
+                            &-red{
+                                font-size: 14px;
+                                line-height: 14px;
+                                color: #FF3232;
+                                text-align: center;
+                            }
+
+                            &-grey{
+                                font-size: 14px;
+                                line-height: 14px;
+                                color: #797979;
+                                position: absolute;
+                                top: 0;
+                                left: 60%;
+                            }
+                        }
+
+                        &-detail{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 54px;
+                            background-color:  #FFC200;
+
+                            &-word{
+                                font-size: 14px;
+                                line-height: 54px;
+                                color: #FFFFFF;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+
+                &-last{
+                    width: 294px;
+                    height: 320px;
+                    float: left;
+                    margin: 0 0 0 8px;
+
+                    &-link{
+                        display: block;
+                    }
+
+                    &-advertise{
+                        width: 294px;
+                        height: 176px;
+                        background-color: #FFFFFF;
+                        margin: 0 0 8px 0;
+
+                        &:hover{
+                            box-shadow: 0 8px 10px 0 rgba(0,0,0,0.20);
+                        }
+
+                        &-img{
+                            display: block;
+                            width: 72px;
+                            height: 102px;
+                            float: left;
+                            margin: 37px 0 0 26px;
+                        }
+
+                        &-title{
+                            float: left;
+                            font-size: 14px;
+                            color: #666666;
+                            line-height: 20px;
+                            margin: 37px 0 0 24px;
+                            text-align: left;
+                        }
+
+                        &-price{
+                            float: left;
+                            font-size: 14px;
+                            line-height: 14px;
+                            margin: 25px 0 0 24px;
+
+                            &-red{
+                                color: #FF3232;
+                                float: left;
+                            }
+
+                            &-grey{
+                                color: #797979;
+                                margin: 0 0 0 8px;
+                                float: left;
+                            }
+                        }
+                    }
+
+                    &-more{
+                        width: 294px;
+                        height: 136px;
+                        background-color: #FFFFFF;
+
+                        &:hover{
+                            box-shadow: 0 8px 10px 0 rgba(0,0,0,0.20);
+                        }
+
+                        &-word{
+                            font-size: 14px;
+                            line-height: 14px;
+                            margin: 61px 0 0 56px;
+                            color: #666666;
+                            float: left;
+                        }
+
+                        &-img{
+                            display: block;
+                            width: 16px;
+                            height: 16px;
+                            background-color: transparent;
+                            margin: 61px 0 0 120px;
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

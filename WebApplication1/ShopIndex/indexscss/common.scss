@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7;
+}
+
+p,h3{
+    margin: 0;
+}
+
+ul,li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.not-visible{
+    visibility: hidden;
+    //display: none;
+}

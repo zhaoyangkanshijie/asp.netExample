@@ -1,0 +1,30 @@
+.aids{
+    position: fixed;
+    bottom: 80px;
+    right: 288px;
+
+    &-top{
+        width: 48px;
+        height: 48px;
+        background-image: url('../images/top_normal.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        margin-bottom: 12px;
+
+        &:hover{
+            background-image: url('../images/top_hover.png');
+        }
+    }
+
+    &-service{
+        width: 48px;
+        height: 48px;
+        background-image: url('../images/1.jpg');
+        background-size: 100% 100%;
+        background-position: center center;
+
+        &:hover{
+            background-image: url('../images/2.jpg');
+        }
+    }
+}
