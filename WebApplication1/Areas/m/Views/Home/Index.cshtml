@@ -2,100 +2,103 @@
 <p>安卓7以上或IOS11以上？@ViewData["DeviceType"]</p>
 <p>下面注释是关于判断wifi状态和视频的播放方式（video或canvas逐帧渲染（需配合/static/js/decoder/*.js一起使用））</p>
 <a href="/m/home/jsonp">jsonp样例</a>
+<br />
+<a href="/m/Home/FormExample">表单样例：前端自定义select，radio，scrollBar，省市选择，后端request，response应用</a>
+<br />
 @*<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js">
-@if (ViewData["DeviceType"] != null && ViewData["DeviceType"] != "ios11")
-{
-    <style type="text/css">
-        canvas {
-            width: 100%
-        }
-    </style>
-    //source:https://github.com/codemirror/CodeMirror,http://www.codeforge.cn/read/296660/avc.js__html
-    <script type="text/javascript" src="~/Areas/m/static/js/decoder/Decoder.js"></script>
-    <script type="text/javascript" src="~/Areas/m/static/js/decoder/YUVCanvas.js"></script>
-    <script type="text/javascript" src="~/Areas/m/static/js/decoder/Player.js"></script>
-    <script type="text/javascript" src="~/Areas/m/static/js/decoder/stream.js"></script>
-    <script type="text/javascript" src="~/Areas/m/static/js/decoder/mp4.js"></script>
-}
-<script type="text/javascript">
-    //source:http://demo.jb51.net/js/2015/net.html
-    function get_status() {
-        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { type: 'unknown' };
-        var type_text = ['unknown', 'ethernet', 'wifi', '2g', '3g', '4g', 'none'];
-        if (typeof (connection.type) == "number") {
-            connection.type_text = type_text[connection.type];
-        } else {
-            connection.type_text = connection.type;
-        }
-        if (connection.type_text == "cellular" || connection.type_text == "4g" || connection.type_text == "3g" || connection.type_text == "2g") {
-            return false;
-        } else {
-            return true;
-        }
+    @if (ViewData["DeviceType"] != null && ViewData["DeviceType"] != "ios11")
+    {
+        <style type="text/css">
+            canvas {
+                width: 100%
+            }
+        </style>
+        //source:https://github.com/codemirror/CodeMirror,http://www.codeforge.cn/read/296660/avc.js__html
+        <script type="text/javascript" src="~/Areas/m/static/js/decoder/Decoder.js"></script>
+        <script type="text/javascript" src="~/Areas/m/static/js/decoder/YUVCanvas.js"></script>
+        <script type="text/javascript" src="~/Areas/m/static/js/decoder/Player.js"></script>
+        <script type="text/javascript" src="~/Areas/m/static/js/decoder/stream.js"></script>
+        <script type="text/javascript" src="~/Areas/m/static/js/decoder/mp4.js"></script>
     }
-</script>
-
-@{
-    string deviceType = null == ViewData["DeviceType"] ? "" : ViewData["DeviceType"].ToString();
-}
-@switch (deviceType)
-{
-    case "ios11":
-        <a href="#" class="head-video">
-            <video poster="abc.jpg" src="xyz.mp4" loop="loop" playsinline muted style="width:100%;"></video>
-        </a>
-        <script>
-            window.onload = function () {
-                var isWifi = get_status();
-                if (isWifi) {
-                    $('.head-video>video').attr('poster', 'loader2.gif').attr("autoplay", "autoplay").get(0).play();
-                } else {
-                    var firstclick = 0;
-                    var jump = $(".head-video").attr("href");
-                    $(".head-video").attr("href", "javascript:void(0)");
-                    $('.head-video>video').on("click", function () {
-                        firstclick++;
-                        if (firstclick == 1) {
-                            $('.head-video>video').attr("autoplay", "autoplay").get(0).play();
-                        } else {
-                            $(".head-video").attr("href", jump);
-                        }
-                    })
-                }
+    <script type="text/javascript">
+        //source:http://demo.jb51.net/js/2015/net.html
+        function get_status() {
+            var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || { type: 'unknown' };
+            var type_text = ['unknown', 'ethernet', 'wifi', '2g', '3g', '4g', 'none'];
+            if (typeof (connection.type) == "number") {
+                connection.type_text = type_text[connection.type];
+            } else {
+                connection.type_text = connection.type;
             }
-        </script>
-        break;
-    default:
-        <div id="vd9210" class="broadway" src="xyz.mp4" workers="false" render="true" webgl="auto" alt="" style="width:100% !important">
-
-        </div>
-        <img id="vdPoster" src="abc.jpg" alt="" style="width:100%;height:75%" />
-        <script>
-            window.onload = function () {
-                var isWifi = get_status();
-                var broadway1 = new Broadway(document.querySelectorAll('div.broadway')[0]);
-                if (isWifi) {
-
-                    $('#vdPoster').attr('src', 'loader2.gif');
-                    broadway1.play();
-                    $('#vd9210>canvas,#vdPoster').on("click", function () {
-                        window.location.href = '#';
-                    });
-
-                } else {
-                    var firstclick = 0;
-                    $('#vdPoster').bind("click", function () {
-                        firstclick++;
-                        if (firstclick == 1) {
-                            $('#vdPoster').attr('src', 'loader2.gif');
-                            broadway1.play();
-                            $('#vd9210>canvas,#vdPoster').on("click", function () {
-                                window.location.href = '#';
-                            });
-                        }
-                    });
-                }
+            if (connection.type_text == "cellular" || connection.type_text == "4g" || connection.type_text == "3g" || connection.type_text == "2g") {
+                return false;
+            } else {
+                return true;
             }
-        </script>
-        break;
-}*@
+        }
+    </script>
+
+    @{
+        string deviceType = null == ViewData["DeviceType"] ? "" : ViewData["DeviceType"].ToString();
+    }
+    @switch (deviceType)
+    {
+        case "ios11":
+            <a href="#" class="head-video">
+                <video poster="abc.jpg" src="xyz.mp4" loop="loop" playsinline muted style="width:100%;"></video>
+            </a>
+            <script>
+                window.onload = function () {
+                    var isWifi = get_status();
+                    if (isWifi) {
+                        $('.head-video>video').attr('poster', 'loader2.gif').attr("autoplay", "autoplay").get(0).play();
+                    } else {
+                        var firstclick = 0;
+                        var jump = $(".head-video").attr("href");
+                        $(".head-video").attr("href", "javascript:void(0)");
+                        $('.head-video>video').on("click", function () {
+                            firstclick++;
+                            if (firstclick == 1) {
+                                $('.head-video>video').attr("autoplay", "autoplay").get(0).play();
+                            } else {
+                                $(".head-video").attr("href", jump);
+                            }
+                        })
+                    }
+                }
+            </script>
+            break;
+        default:
+            <div id="vd9210" class="broadway" src="xyz.mp4" workers="false" render="true" webgl="auto" alt="" style="width:100% !important">
+
+            </div>
+            <img id="vdPoster" src="abc.jpg" alt="" style="width:100%;height:75%" />
+            <script>
+                window.onload = function () {
+                    var isWifi = get_status();
+                    var broadway1 = new Broadway(document.querySelectorAll('div.broadway')[0]);
+                    if (isWifi) {
+
+                        $('#vdPoster').attr('src', 'loader2.gif');
+                        broadway1.play();
+                        $('#vd9210>canvas,#vdPoster').on("click", function () {
+                            window.location.href = '#';
+                        });
+
+                    } else {
+                        var firstclick = 0;
+                        $('#vdPoster').bind("click", function () {
+                            firstclick++;
+                            if (firstclick == 1) {
+                                $('#vdPoster').attr('src', 'loader2.gif');
+                                broadway1.play();
+                                $('#vd9210>canvas,#vdPoster').on("click", function () {
+                                    window.location.href = '#';
+                                });
+                            }
+                        });
+                    }
+                }
+            </script>
+            break;
+    }*@

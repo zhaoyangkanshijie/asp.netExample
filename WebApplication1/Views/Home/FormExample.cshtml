@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "FormExample";
+}
+<link type="text/css" rel="stylesheet" href="/Content/css/FormExample.min.css" />
+<script src="/Scripts/jquery-1.10.2.min.js"></script>
+<script src="/Content/js/FormExample.js"></script>
+<div class="FormExample">
+    <div class="FormExample-banner"></div>
+    <div class="FormExample-container" style="height:628px;">
+        <div class="FormExample-header">
+            <p class="FormExample-header-item">header来的啦~</p>
+            <p class="FormExample-header-item active">parameter</p>
+            <div class="FormExample-header-underline"></div>
+            <div class="FormExample-header-underline active"></div>
+        </div>
+        <div class="FormExample-selection">
+            <h3 class="FormExample-selection-scene" data-scene="header来的啦~">selected：header来的啦~</h3>
+            <p class="FormExample-selection-hint">some hints</p>
+        </div>
+        <form class="FormExample-form" method="post" action="@Html.ActionUrl("home", "FormSubmit")">
+            <div class="FormExample-form-container">
+                <div class="FormExample-form-container-address">
+                    <p class="FormExample-form-container-address-word">请选择您所在的城市 *</p>
+                    <div class="FormExample-form-container-address-box">
+                        <div class="FormExample-form-container-address-box-select">
+                            <p class="FormExample-form-container-address-box-select-placeholder">省</p>
+                            <ul class="FormExample-form-container-address-box-select-list not-visible">
+                                @*<li class="FormExample-form-container-address-box-select-list-option">请选择1</li>*@
+                            </ul>
+                        </div>
+                        <div class="FormExample-form-container-address-box-select">
+                            <p class="FormExample-form-container-address-box-select-placeholder">市</p>
+                            <ul class="FormExample-form-container-address-box-select-list not-visible">
+                                @*<li class="FormExample-form-container-address-box-select-list-option">请选择1</li>*@
+                            </ul>
+                        </div>
+                        <div class="FormExample-form-container-address-box-error not-visible">
+                            <p class="FormExample-form-container-address-box-error-word">省份不能为空</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="FormExample-form-container-area">
+                    <p class="FormExample-form-container-area-word">请输入阴影面积 *</p>
+                    <div class="FormExample-form-container-area-box">
+                        <input class="FormExample-form-container-area-box-input" type="text" name="area" />
+                        <p class="FormExample-form-container-area-box-word">㎡</p>
+                        <div class="FormExample-form-container-area-box-error not-visible">
+                            <p class="FormExample-form-container-area-box-error-word">阴影面积不能为空</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="FormExample-form-container-type">
+                    <p class="FormExample-form-container-type-word">随便选一个吧 *</p>
+                    <div class="FormExample-form-container-type-box">
+                        <div class="FormExample-form-container-type-box-item">
+                            <div class="FormExample-form-container-type-box-item-radio">
+                                <div class="FormExample-form-container-type-box-item-radio-dot not-visible"></div>
+                            </div>
+                            <p class="FormExample-form-container-type-box-item-word">db</p>
+                        </div>
+                        <div class="FormExample-form-container-type-box-item">
+                            <div class="FormExample-form-container-type-box-item-radio">
+                                <div class="FormExample-form-container-type-box-item-radio-dot not-visible"></div>
+                            </div>
+                            <p class="FormExample-form-container-type-box-item-word">sb</p>
+                        </div>
+                        <div class="FormExample-form-container-type-box-item">
+                            <div class="FormExample-form-container-type-box-item-radio">
+                                <div class="FormExample-form-container-type-box-item-radio-dot not-visible"></div>
+                            </div>
+                            <p class="FormExample-form-container-type-box-item-word">lyb</p>
+                        </div>
+                        <div class="FormExample-form-container-type-box-error not-visible">
+                            <p class="FormExample-form-container-type-box-error-word">随便选一个吧</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="FormExample-form-container-phone">
+                    <p class="FormExample-form-container-phone-word">请留下您的联系电话 *</p>
+                    <div class="FormExample-form-container-phone-box">
+                        <input class="FormExample-form-container-phone-box-input" type="tel" name="phone" />
+                        <div class="FormExample-form-container-phone-box-error not-visible">
+                            <p class="FormExample-form-container-phone-box-error-word">请正确填写电话</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="FormExample-form-container-aids">
+                    <input class="FormExample-form-container-aids-consult" type="button" name="consult" value="客服不能点" onclick="alert('说了不能点，客服休假去了')" />
+                    <input class="FormExample-form-container-aids-submit" type="button" name="submit" value="立即提交" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

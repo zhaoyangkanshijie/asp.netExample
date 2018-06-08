@@ -43,6 +43,20 @@ namespace WebApplication1.Areas.m
             );
 
             context.MapRoute(
+                "mFormExample",
+                "m/home/FormExample",
+                new { controller = "home", action = "FormExample" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            context.MapRoute(
+                "mFormSubmit",
+                "m/home/formSubmit",
+                new { controller = "home", action = "formSubmit" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            context.MapRoute(
                 name: "mDefault",
                 url: "m/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -240,6 +240,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\m\static\js\flexible.min.js" />
+    <Content Include="Areas\m\static\js\jquery-1.10.2.min.js" />
     <Content Include="Areas\m\static\other\demo.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -259,6 +261,7 @@
     <Content Include="Areas\m\Views\Shared\Error.cshtml" />
     <Content Include="Areas\m\Views\_ViewStart.cshtml" />
     <Content Include="Areas\m\Views\Home\jsonp.cshtml" />
+    <Content Include="Areas\m\Views\Home\FormExample.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Areas\m\static\js\decoder\Decoder.js" />
     <Content Include="Areas\m\static\js\decoder\mp4.js" />
@@ -275,6 +278,53 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="ShopIndex\gulpfile.js" />
+    <Content Include="ShopIndex\images\1.jpg" />
+    <Content Include="ShopIndex\images\2.jpg" />
+    <Content Include="ShopIndex\images\3.jpg" />
+    <Content Include="ShopIndex\images\4.jpg" />
+    <Content Include="ShopIndex\images\5.jpg" />
+    <Content Include="ShopIndex\images\Go on.png" />
+    <Content Include="ShopIndex\images\go_gray.png" />
+    <Content Include="ShopIndex\images\Last_max.png" />
+    <Content Include="ShopIndex\images\Next_max.png" />
+    <Content Include="ShopIndex\images\Search.png" />
+    <Content Include="ShopIndex\images\shopping_cart.png" />
+    <Content Include="ShopIndex\images\sup_hot.png" />
+    <Content Include="ShopIndex\images\sup_new.png" />
+    <Content Include="ShopIndex\images\top_hover.png" />
+    <Content Include="ShopIndex\images\top_normal.png" />
+    <Content Include="ShopIndex\Index.html" />
+    <Content Include="ShopIndex\indexcss\aids.min.css" />
+    <Content Include="ShopIndex\indexcss\autoprompt.min.css" />
+    <Content Include="ShopIndex\indexcss\common.min.css" />
+    <Content Include="ShopIndex\indexcss\fadeSlider.min.css" />
+    <Content Include="ShopIndex\indexcss\hot-product.min.css" />
+    <Content Include="ShopIndex\indexcss\layout-banner-nav.min.css" />
+    <Content Include="ShopIndex\indexcss\layout-footer.min.css" />
+    <Content Include="ShopIndex\indexcss\layout-header.min.css" />
+    <Content Include="ShopIndex\indexcss\product-show.min.css" />
+    <Content Include="ShopIndex\indexjs\aidsResponsive.js" />
+    <Content Include="ShopIndex\indexjs\fadeSlider.js" />
+    <Content Include="ShopIndex\indexjs\fadeSliderEntry.js" />
+    <Content Include="ShopIndex\indexjs\fadeSliderResponsive.js" />
+    <Content Include="ShopIndex\indexjs\headerAction.js" />
+    <Content Include="ShopIndex\indexjs\navAction.js" />
+    <Content Include="ShopIndex\indexjs\presentationAction.js" />
+    <Content Include="ShopIndex\indexminjs\aidsResponsive.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery-ui.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery.ui.autocomplete.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery.ui.core.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery.ui.menu.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery.ui.position.min.js" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\jquery.ui.widget.min.js" />
+    <Content Include="ShopIndex\indexminjs\fadeSlider.min.js" />
+    <Content Include="ShopIndex\indexminjs\fadeSliderEntry.min.js" />
+    <Content Include="ShopIndex\indexminjs\fadeSliderResponsive.min.js" />
+    <Content Include="ShopIndex\indexminjs\headerAction.min.js" />
+    <Content Include="ShopIndex\indexminjs\jquery-1.8.2.min.js" />
+    <Content Include="ShopIndex\indexminjs\navAction.min.js" />
+    <Content Include="ShopIndex\indexminjs\presentationAction.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -300,12 +350,28 @@
     <Content Include="Views\Home\DeepClone.cshtml" />
     <Content Include="Views\Home\OpenerAndFileReader.cshtml" />
     <Content Include="Views\Home\Deserialize.cshtml" />
+    <Content Include="Views\Home\FormExample.cshtml" />
+    <Content Include="ShopIndex\.babelrc" />
+    <Content Include="ShopIndex\indexminjs\autocomplete\data.json" />
+    <Content Include="ShopIndex\indexscss\aids.scss" />
+    <Content Include="ShopIndex\indexscss\autoprompt.scss" />
+    <Content Include="ShopIndex\indexscss\common.scss" />
+    <Content Include="ShopIndex\indexscss\fadeSlider.scss" />
+    <Content Include="ShopIndex\indexscss\hot-product.scss" />
+    <Content Include="ShopIndex\indexscss\layout-banner-nav.scss" />
+    <Content Include="ShopIndex\indexscss\layout-footer.scss" />
+    <Content Include="ShopIndex\indexscss\layout-header.scss" />
+    <Content Include="ShopIndex\indexscss\product-show.scss" />
+    <Content Include="ShopIndex\package-lock.json" />
+    <Content Include="ShopIndex\package.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\m\src\js\" />
-    <Folder Include="Areas\m\src\sass\" />
     <Folder Include="Areas\m\static\css\" />
+    <Folder Include="Areas\m\static\images\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\js\" />
     <Folder Include="Content\ppt\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的 ASP.NET 应用程序</title>
+    @RenderSection("Header", false)@*用于添加引用文件*@
 </head>
 <body>
+    @*@Html.Partial("partial")用于部分视图*@
     @RenderBody()
 </body>
 </html>

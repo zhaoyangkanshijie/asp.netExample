@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -78,6 +80,95 @@ namespace WebApplication1.Controllers.Areas.m.Controllers
             }
 
             return "error";
+        }
+
+        [ActionName("formExample")]
+        public ActionResult FormExample()
+        {
+            return View();
+        }
+
+        [ActionName("formSubmit")]
+        public ActionResult FormSubmit()
+        {
+            string formMsg = HttpUtility.UrlDecode(Request.Form.ToString());
+            if (string.IsNullOrEmpty(formMsg))
+            {
+                using (Stream s = Request.InputStream)
+                {
+                    StreamReader reader = new StreamReader(s);
+                    formMsg = reader.ReadToEnd();
+                }
+            }
+            string actionMsg = formMsg.Substring(formMsg.IndexOf('{'), formMsg.LastIndexOf('}') - formMsg.IndexOf('{') + 1);
+
+            string url = "https://www.baidu.com/";//填入请求的url,url那边需要写response，此处为了方便，手动设置response的内容为ok
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            request.ContentType = "application/json";
+            request.Method = "post";
+            request.Timeout = 10000;
+            Stream responseStream = null;
+            StreamReader sReader = null;
+            String value = null;
+            request.UserAgent = Request.UserAgent;
+            //如果需要POST数据
+
+            byte[] payload;
+            //将Json字符串转化为字节  
+            payload = System.Text.Encoding.UTF8.GetBytes(actionMsg);
+            //设置请求的ContentLength   
+            request.ContentLength = payload.Length;
+            //发送请求，获得请求流 
+
+            Stream writer;
+            try
+            {
+                writer = request.GetRequestStream();//获取用于写入请求数据的Stream对象
+            }
+            catch (Exception)
+            {
+                writer = null;
+                Console.Write("连接服务器失败!");
+            }
+            //将请求参数写入流
+            writer.Write(payload, 0, payload.Length);
+
+
+            WebResponse res = request.GetResponse();//由于url没response，此处会报错
+
+            try
+            {
+                // 获取响应流
+                responseStream = res.GetResponseStream();
+                // 对接响应流(以"utf-8"字符集)
+                sReader = new StreamReader(responseStream, System.Text.Encoding.GetEncoding("utf-8"));
+                // 开始读取数据
+                value = sReader.ReadToEnd();
+            }
+            catch (Exception)
+            {
+                //日志异常
+            }
+            finally
+            {
+                //强制关闭
+                writer.Close();//关闭请求流
+                if (sReader != null)
+                {
+                    sReader.Close();
+                }
+                if (responseStream != null)
+                {
+                    responseStream.Close();
+                }
+                if (res != null)
+                {
+                    res.Close();
+                }
+            }
+
+            return Content("ok");
         }
 
     }

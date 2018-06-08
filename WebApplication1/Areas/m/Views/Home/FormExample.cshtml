@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "FormExample";
+}
+<link type="text/css" rel="stylesheet" href="~/Areas/m/static/css/FormExample.min.css" />
+<script src="~/Areas/m/static/js/flexible.min.js" type="text/javascript"></script>
+<script src="~/Areas/m/static/js/jquery-1.10.2.min.js"></script>
+<script src="~/Areas/m/static/js/FormExample.js"></script>
+<div class="FormExample">
+    <p class="FormExample-selection">header来的啦~</p>
+
+    <p class="FormExample-fill">header来的啦~</p>
+
+    <p class="FormExample-word">请选择您所在的城市</p>
+    <div class="FormExample-address">
+        <p class="FormExample-address-placeholder">省</p>
+        <ul class="FormExample-address-list not-visible">
+            @*<li class="FormExample-address-list-item">请选择1</li>*@
+        </ul>
+    </div>
+    <div class="FormExample-address">
+        <p class="FormExample-address-placeholder">市</p>
+        <ul class="FormExample-address-list not-visible">
+            @*<li class="FormExample-address-list-item">请选择1</li>*@
+        </ul>
+    </div>
+
+    <p class="FormExample-word">请输入阴影面积</p>
+    <div class="FormExample-area">
+        <input class="FormExample-area-input" type="text" name="area" />
+        <p class="FormExample-area-m2">㎡</p>
+    </div>
+
+    <p class="FormExample-word">随便选一个吧</p>
+    <div class="FormExample-type">
+        <p class="FormExample-type-placeholder">db</p>
+        <ul class="FormExample-type-list not-visible">
+            <li class="FormExample-type-list-item">db</li>
+            <li class="FormExample-type-list-item">sb</li>
+            <li class="FormExample-type-list-item">lyb</li>
+        </ul>
+    </div>
+
+    <p class="FormExample-word">请留下您的联系电话</p>
+    <input class="FormExample-phone" type="tel" name="phone" />
+
+    <p class="FormExample-contact">some hints</p>
+
+    <input class="FormExample-submit" type="button" name="submit" value="立即提交" />
+    <input class="FormExample-consult" type="button" name="consult" value="客服不能点" onclick="alert('说了不能点，客服休假去了')" />
+</div>
+

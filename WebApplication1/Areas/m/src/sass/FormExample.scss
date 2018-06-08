@@ -1,0 +1,327 @@
+// px转换为rem
+@function pxToRem($px, $base: 750px) {
+    $min: 1 / $base * 10 * 1;
+    $result: $px / $base * 10 * 1;
+
+    @if $result < 0.027 and $result > 0 {
+        @return 2px;
+    }
+
+    @else {
+        @return $px / $base * 10 * 1rem;
+    }
+
+}
+
+// 设置dpr下的字体大小
+@mixin font-dpr($font-size, $line-height: $font-size) {
+    font-size: $font-size / 2;
+
+    @if $line-height != none {
+        line-height: $line-height / 2;
+    }
+
+    [data-dpr="2"] & {
+        font-size: $font-size;
+
+        @if $line-height != none {
+            line-height: $line-height;
+        }
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3 / 2;
+
+        @if $line-height != none {
+            line-height: $line-height * 3 / 2;
+        }
+    }
+}
+
+// 设置dpr下的图片
+@mixin img-dpr($url, $pattern) {
+    background-image: url($url);
+
+    [data-dpr="2"] & {
+        background-image: url(str-replace-first($url, $pattern, '@2x' + $pattern));
+    }
+
+    [data-dpr="3"] & {
+        background-image: url(str-replace-first($url, $pattern, '@3x' + $pattern));
+    }
+}
+
+body{
+    padding:0;
+    margin:0;
+}
+
+p,input,div{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.not-visible{
+	visibility: hidden;
+}
+
+.FormExample {
+    width: 100%;
+    overflow: hidden;
+
+    &-banner {
+        width: pxToRem(750px);
+        height: pxToRem(240px);
+        background-image: url("../images/FormExample/banner.jpg");
+        background-position: center center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    &-list {
+        width: 100%;
+        padding: 0 pxToRem(32px);
+
+        &-item {
+            width: 100%;
+            height: pxToRem(96px);
+            border-bottom: 1px solid #E6E6E6;
+
+            &-link {
+                display: block;
+            }
+
+            &-word {
+                @include font-dpr(30px);
+                color: #000000;
+                line-height: pxToRem(96px);
+            }
+        }
+    }
+
+    &-selection {
+        width: 100%;
+        @include font-dpr(30px);
+        line-height: pxToRem(96px);
+        color: #000000;
+        margin-left: pxToRem(32px);
+        border-bottom: 1px solid #CFCFCF;
+    }
+
+    &-fill {
+        @include font-dpr(48px);
+        line-height: pxToRem(48px);
+        color: #000000;
+        font-weight: bold;
+        margin: pxToRem(32px) 0rem pxToRem(48px) pxToRem(32px);
+    }
+
+    &-word {
+        @include font-dpr(30px);
+        line-height: pxToRem(30px);
+        color: #666666;
+        margin: 0rem 0rem pxToRem(16px) pxToRem(32px);
+    }
+
+    &-address {
+        border: pxToRem(2px) solid #E6E6E6;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(32px) pxToRem(32px);
+        position: relative;
+        background-image: url("../images/FormExample/unfold.png");
+        background-repeat: no-repeat;
+        background-position: pxToRem(606px) center;
+
+        &:nth-of-type(n+2) {
+            margin: 0rem 0rem pxToRem(48px) pxToRem(32px);
+        }
+
+        &-placeholder {
+            position: absolute;
+            top: pxToRem(20px);
+            left: pxToRem(32px);
+            @include font-dpr(30px);
+            color: #B3B3B3;
+        }
+
+        &-list {
+            width: pxToRem(686px);
+            height: pxToRem(232px);
+            position: absolute;
+            top: pxToRem(80px);
+            left: -2px;
+            border: pxToRem(2px) solid #E6E6E6;
+            border-radius: pxToRem(8px);
+            z-index: 3;
+            overflow-y: scroll;
+            background-color: #FFFFFF;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &-item {
+                width: 100%;
+                height: pxToRem(72px);
+                @include font-dpr(30px);
+                line-height: pxToRem(72px);
+                color: #333333;
+                padding-left: pxToRem(72px);
+                //background-image: url("../images/FormExample/tick.png");
+                background-repeat: no-repeat;
+                background-position: pxToRem(32px) center;
+
+                &:first-child {
+                    margin-top: pxToRem(8px);
+                }
+
+                &:last-child {
+                    margin-bottom: pxToRem(8px);
+                }
+            }
+        }
+    }
+
+    &-area {
+        border: pxToRem(2px) solid #E6E6E6;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(48px) pxToRem(32px);
+        position: relative;
+
+        &-input {
+            position: absolute;
+            top: 0;
+            left: pxToRem(32px);
+            width: pxToRem(580px);
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            color: #666666;
+            @include font-dpr(30px);
+            box-sizing: border-box;
+        }
+
+        &-m2 {
+            position: absolute;
+            top: 0;
+            left: pxToRem(624px);
+            @include font-dpr(30px);
+            line-height: pxToRem(80px);
+            color: #666666;
+        }
+    }
+
+    &-type {
+        border: pxToRem(2px) solid #E6E6E6;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(48px) pxToRem(32px);
+        padding-left: pxToRem(32px);
+        background-image: url("../images/FormExample/unfold.png");
+        background-repeat: no-repeat;
+        background-position: pxToRem(606px) center;
+        position: relative;
+
+        &-placeholder {
+            position: absolute;
+            top: pxToRem(20px);
+            left: pxToRem(32px);
+            @include font-dpr(30px);
+            color: #333333;
+        }
+
+        &-list {
+            width: pxToRem(686px);
+            height: pxToRem(232px);
+            position: absolute;
+            top: pxToRem(80px);
+            left: -2px;
+            border: pxToRem(2px) solid #E6E6E6;
+            border-radius: pxToRem(8px);
+            z-index: 3;
+            background-color: #FFFFFF;
+
+            &-item {
+                width: 100%;
+                height: pxToRem(72px);
+                @include font-dpr(30px);
+                line-height: pxToRem(72px);
+                color: #333333;
+                padding-left: pxToRem(72px);
+                //background-image: url("../images/FormExample/tick.png");
+                background-repeat: no-repeat;
+                background-position: pxToRem(32px) center;
+
+                &:first-child {
+                    margin-top: pxToRem(8px);
+                    color: #00A8FF;
+                    background-image: url("../images/FormExample/tick.png");
+                    background-repeat: no-repeat;
+                    background-position: pxToRem(32px) center;
+                }
+
+                &:last-child {
+                    margin-bottom: pxToRem(8px);
+                }
+            }
+        }
+    }
+
+    &-phone {
+        border: pxToRem(2px) solid #E6E6E6;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(16px) pxToRem(32px);
+        padding-left: pxToRem(32px);
+        @include font-dpr(30px);
+        line-height: pxToRem(80px);
+        color: #000000;
+    }
+
+    &-contact {
+        @include font-dpr(26px);
+        color: #999999;
+        margin: 0rem 0rem pxToRem(48px) pxToRem(32px);
+    }
+
+    &-submit {
+        display: block;
+        border: none;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(32px) pxToRem(32px);
+        background-color: #00A8FF;
+        @include font-dpr(32px);
+        line-height: pxToRem(80px);
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    &-consult {
+        display: block;
+        border: 2px solid #00A8FF;
+        border-radius: pxToRem(8px);
+        width: pxToRem(686px);
+        height: pxToRem(80px);
+        margin: 0rem 0rem pxToRem(48px) pxToRem(32px);
+        background-color: #FFFFFF;
+        @include font-dpr(32px);
+        line-height: pxToRem(80px);
+        color: #00A8FF;
+        text-align: center;
+    }
+}

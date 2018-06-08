@@ -134,6 +134,20 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "FormExample",
+                "home/FormExample",
+                new { controller = "home", action = "FormExample" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "FormSubmit",
+                "home/formSubmit",
+                new { controller = "home", action = "formSubmit" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

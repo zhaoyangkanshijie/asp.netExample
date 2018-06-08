@@ -1,0 +1,523 @@
+body{
+	background-color: #ffffff;
+}
+
+.footer{
+	margin: 0;
+}
+
+.not-visible{
+	visibility: hidden;
+}
+
+ul,li{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 16px;
+    height: 16px;
+    background-color: #F5F5F5;
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.FormExample {
+    width: 100%;
+    border-bottom: 1px solid #E0E0E0;
+
+    &-banner {
+        width: 100%;
+        min-width: 1200px;
+        height: 240px;
+        background-image: url("/Content/images/FormExample/banner.jpg");
+        background-position: center center;
+    }
+
+    &-container {
+        width: 1200px;
+        //height: 800px;
+        margin: 40px auto 120px auto;
+    }
+
+    &-header {
+        width: 100%;
+        height: 36px;
+        position: relative;
+        border-bottom: 1px solid #E0E0E0;
+
+        &-item {
+            float: left;
+            font-size: 18px;
+            line-height: 18px;
+            color: #B3B3B3;
+            padding-bottom: 14px;
+
+            &.active {
+                color: #333333;
+            }
+
+            &:first-child {
+                margin-right: 40px;
+            }
+        }
+
+        &-underline {
+            width: 108px;
+            height: 1px;
+            position: absolute;
+            background-color: #E0E0E0;
+            top: 35px;
+
+            &.active {
+                background-color: #0088FF;
+                z-index: 2;
+            }
+
+            &:first-of-type {
+                left: 0px;
+            }
+
+            &:last-of-type {
+                left: 148px;
+            }
+        }
+    }
+
+    &-scene {
+        width: 100%;
+        margin-top: 8px;
+
+        &-list {
+            width: 100%;
+
+            &-item {
+                width: 282px;
+                height: 228px;
+                margin-top: 24px;
+                float: left;
+
+                &:nth-of-type(4n+1) {
+                    margin-right: 24px;
+                }
+
+                &:nth-of-type(4n+2) {
+                    margin-right: 24px;
+                }
+
+                &:nth-of-type(4n+3) {
+                    margin-right: 24px;
+                }
+
+                &-link {
+                    display: block;
+                    float: left;
+                }
+
+                &-img {
+                    display: block;
+                    width: 282px;
+                    height: 180px;
+                }
+
+                &-word {
+                    font-size: 14px;
+                    color: #333333;
+                    text-align: center;
+                    line-height: 48px;
+                }
+            }
+        }
+    }
+
+    &-selection {
+        width: 100%;
+        height: 72px;
+        margin: 32px 0 24px 0;
+
+        &-scene {
+            font-size: 28px;
+            color: #333333;
+            line-height: 40px;
+        }
+
+        &-hint {
+            font-size: 16px;
+            color: #666666;
+            line-height: 24px;
+        }
+    }
+
+    &-form {
+        width: 100%;
+        height: 464px;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;
+
+        &-container {
+            width: 536px;
+            height: 384px;
+            margin: 40px auto;
+
+            &-address {
+                width: 100%;
+                height: 40px;
+
+                &-word {
+                    font-size: 14px;
+                    color: #666666;
+                    text-align: right;
+                    line-height: 40px;
+                    width: 160px;
+                    margin-right: 16px;
+                    float: left;
+                }
+
+                &-box {
+                    float: left;
+                    width: 360px;
+                    position: relative;
+
+                    &-select {
+                        width: 172px;
+                        height: 40px;
+                        float: left;
+                        font-size: 14px;
+                        color: #333333;
+                        line-height: 40px;
+                        padding-left: 16px;
+                        background-image: url("/Content/images/FormExample/unfold.png");
+                        background-repeat: no-repeat;
+                        background-position: 140px center;
+                        background-color: #FFFFFF;
+                        border: 1px solid #CCCCCC;
+                        border-radius: 4px;
+                        position: relative;
+
+                        &:first-of-type {
+                            margin-right: 16px;
+                        }
+
+                        &-placeholder {
+                            position: absolute;
+                            top: 10px;
+                            left: 16px;
+                            font-size: 14px;
+                            color: #B3B3B3;
+                            line-height: 20px;
+                        }
+
+                        &-list {
+                            width: 100%;
+                            height: 112px;
+                            position: absolute;
+                            top: 44px;
+                            left: 0;
+                            z-index: 2;
+                            background: #FFFFFF;
+                            border: 1px solid #CCCCCC;
+                            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+                            border-radius: 4px;
+                            overflow-y: scroll;
+
+                            &-option {
+                                width: 100%;
+                                height: 32px;
+                                font-size: 14px;
+                                line-height: 32px;
+                                color: #333333;
+                                padding-left: 40px;
+                                //background-image: url("/Content/images/FormExample/tick.png");
+                                background-repeat: no-repeat;
+                                background-position: 16px center;
+                                background-color: transparent;
+
+                                &:hover {
+                                    background-color: #E5F3FF;
+                                }
+
+                                &:first-child {
+                                    margin-top: 8px;
+                                }
+
+                                &:last-child {
+                                    margin-bottom: 8px;
+                                }
+                            }
+                        }
+                    }
+
+                    &-error {
+                        position: absolute;
+                        top: 0px;
+                        left: 376px;
+                        width: 144px;
+                        height: 40px;
+                        background-color: #FFECEB;
+                        border-radius: 4px;
+
+                        &-word {
+                            font-size: 14px;
+                            color: #FF3B30;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            &-area {
+                width: 100%;
+                height: 40px;
+                margin: 16px 0;
+
+                &-word {
+                    font-size: 14px;
+                    color: #666666;
+                    text-align: right;
+                    line-height: 40px;
+                    width: 160px;
+                    margin-right: 16px;
+                    float: left;
+                }
+
+                &-box {
+                    float: left;
+                    width: 360px;
+                    height: 40px;
+                    position: relative;
+
+                    &-input {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        width: 360px;
+                        height: 40px;
+                        border: none;
+                        background-color: #FFFFFF;
+                        border: 1px solid #CCCCCC;
+                        border-radius: 4px;
+                        padding: 10px 33px 10px 16px;
+                        max-width:none;
+
+                        &:focus {
+                            border: 1px solid #00A8FF;
+                        }
+                    }
+
+                    &-word {
+                        position: absolute;
+                        top: 10px;
+                        left: 330px;
+                    }
+
+                    &-error {
+                        position: absolute;
+                        top: 0px;
+                        left: 376px;
+                        width: 144px;
+                        height: 40px;
+                        background-color: #FFECEB;
+                        border-radius: 4px;
+
+                        &-word {
+                            font-size: 14px;
+                            color: #FF3B30;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            &-type {
+                width: 100%;
+                height: 116px;
+
+                &-word {
+                    font-size: 14px;
+                    color: #666666;
+                    text-align: right;
+                    line-height: 40px;
+                    width: 160px;
+                    margin-right: 16px;
+                    float: left;
+                }
+
+                &-box {
+                    float: left;
+                    width: 360px;
+                    height: 116px;
+                    background: #FFFFFF;
+                    border: 1px solid #CCCCCC;
+                    border-radius: 4px;
+                    position: relative;
+
+                    &-item {
+                        margin: 16px 0 0 16px;
+                        clear: both;
+                        height: 16px;
+
+                        &-radio {
+                            background-color: #FFFFFF;
+                            border: 1px solid #CCCCCC;
+                            border-radius: 100%;
+                            width: 16px;
+                            height: 16px;
+                            float: left;
+
+                            &.active {
+                                border: 1px solid #00A8FF;
+                            }
+
+                            &-dot {
+                                background-color: #00A8FF;
+                                width: 8px;
+                                height: 8px;
+                                margin: 3px;
+                                border-radius: 100%;
+                            }
+                        }
+
+                        &-word {
+                            font-size: 14px;
+                            color: #333333;
+                            line-height: 16px;
+                            float: left;
+                            margin-left: 8px;
+                        }
+                    }
+
+                    &-error {
+                        position: absolute;
+                        top: 0px;
+                        left: 376px;
+                        width: 144px;
+                        height: 40px;
+                        background-color: #FFECEB;
+                        border-radius: 4px;
+
+                        &-word {
+                            font-size: 14px;
+                            color: #FF3B30;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            &-phone {
+                width: 100%;
+                height: 40px;
+                margin: 16px 0 60px 0;
+
+                &-word {
+                    font-size: 14px;
+                    color: #666666;
+                    text-align: right;
+                    line-height: 40px;
+                    width: 160px;
+                    margin-right: 16px;
+                    float: left;
+                }
+
+                &-box {
+                    float: left;
+                    width: 360px;
+                    height: 40px;
+                    position: relative;
+
+                    &-input {
+                        width: 360px;
+                        height: 40px;
+                        border: none;
+                        background-color: #FFFFFF;
+                        border: 1px solid #CCCCCC;
+                        border-radius: 4px;
+                        padding: 10px 33px 10px 16px;
+
+                        &:focus {
+                            border: 1px solid #00A8FF;
+                        }
+                    }
+
+                    &-error {
+                        position: absolute;
+                        top: 0px;
+                        left: 376px;
+                        width: 144px;
+                        height: 40px;
+                        background-color: #FFECEB;
+                        border-radius: 4px;
+
+                        &-word {
+                            font-size: 14px;
+                            color: #FF3B30;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            &-aids {
+                width: 100%;
+                height: 40px;
+
+                &-consult {
+                    width: 260px;
+                    height: 40px;
+                    background-color: #FFFFFF;
+                    border: 1px solid #00A8FF;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    color: #00A8FF !important;
+                    text-align: center;
+                    line-height: 40px;
+                    float: left;
+
+                    &:hover {
+                        border: 1px solid #0082E6;
+                        color: #0082E6 !important;
+                    }
+                }
+
+                &-submit {
+                    width: 260px;
+                    height: 40px;
+                    border: 1px solid #00A8FF;
+                    background-color: #00A8FF !important;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    color: #FFFFFF !important;
+                    text-align: center;
+                    line-height: 40px;
+                    float: right;
+
+                    &:hover {
+                        background-color: #0082E6 !important;
+                    }
+                }
+            }
+        }
+    }
+}
