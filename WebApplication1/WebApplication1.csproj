@@ -240,11 +240,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\m\static\css\FormExample.min.css" />
+    <Content Include="Areas\m\static\images\FormExample\banner.jpg" />
+    <Content Include="Areas\m\static\images\FormExample\fold.png" />
+    <Content Include="Areas\m\static\images\FormExample\tick.png" />
+    <Content Include="Areas\m\static\images\FormExample\unfold.png" />
     <Content Include="Areas\m\static\js\flexible.min.js" />
+    <Content Include="Areas\m\static\js\FormExample.js" />
     <Content Include="Areas\m\static\js\jquery-1.10.2.min.js" />
     <Content Include="Areas\m\static\other\demo.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\FormExample.min.css" />
+    <Content Include="Content\images\FormExample\banner.jpg" />
+    <Content Include="Content\images\FormExample\fold.png" />
+    <Content Include="Content\images\FormExample\tick.png" />
+    <Content Include="Content\images\FormExample\unfold.png" />
+    <Content Include="Content\js\FormExample.js" />
     <Content Include="Content\test\a.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -367,11 +379,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\m\static\css\" />
-    <Folder Include="Areas\m\static\images\" />
-    <Folder Include="Content\css\" />
-    <Folder Include="Content\images\" />
-    <Folder Include="Content\js\" />
     <Folder Include="Content\ppt\" />
   </ItemGroup>
   <ItemGroup>

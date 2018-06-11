@@ -162,17 +162,22 @@ namespace WebApplication1.Controllers
         [ActionName("formSubmit")]
         public ActionResult FormSubmit()
         {
-            string formMsg = HttpUtility.UrlDecode(Request.Form.ToString());
-            if (string.IsNullOrEmpty(formMsg))
+            string formMsg = string.Empty;
+            using (Stream s = Request.InputStream)
             {
-                using (Stream s = Request.InputStream)
-                {
-                    StreamReader reader = new StreamReader(s);
-                    formMsg = reader.ReadToEnd();
-                }
+                StreamReader reader = new StreamReader(s);
+                formMsg = reader.ReadToEnd();
             }
             string actionMsg = formMsg.Substring(formMsg.IndexOf('{'), formMsg.LastIndexOf('}') - formMsg.IndexOf('{') + 1);
 
+            //获取配置文件的办法
+            //webConfig:configuration标签下
+            //<appSettings>
+            //    <add key="SolutionUrl" value="http://..." />
+            //</appSettings>
+            //controller:
+            //string solutionUrl = WebConfigurationManager.AppSettings["SolutionUrl"];
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(solutionUrl);
             string url = "https://www.baidu.com/";//填入请求的url,url那边需要写response，此处为了方便，手动设置response的内容为ok
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
