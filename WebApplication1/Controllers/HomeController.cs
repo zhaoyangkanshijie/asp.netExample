@@ -159,6 +159,13 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [ActionName("dictionarySort")]
+        public ActionResult DictionarySort()
+        {
+            //C# 可通过linq的OrderBy，OrderByDescending，ThenByDescending进行排序
+            return View();
+        }
+
         [ActionName("formSubmit")]
         public ActionResult FormSubmit()
         {

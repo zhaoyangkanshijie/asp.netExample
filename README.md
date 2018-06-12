@@ -27,6 +27,7 @@
 23. 商城静态首页样例（后续可能会用框架改写），自动补全，flex，border-box
 24. 表单样例：前端自定义select，radio，scrollBar，省市选择，后端request，response应用
 25. 移动端适配：flexible，sass转换dpr，字体，图片函数
+26. 省市按字典序排列
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝、银行

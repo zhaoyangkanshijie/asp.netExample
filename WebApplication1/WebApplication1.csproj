@@ -376,6 +376,7 @@
     <Content Include="ShopIndex\indexscss\product-show.scss" />
     <Content Include="ShopIndex\package-lock.json" />
     <Content Include="ShopIndex\package.json" />
+    <Content Include="Views\Home\DictionarySort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

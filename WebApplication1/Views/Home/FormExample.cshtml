@@ -5,6 +5,25 @@
 <link type="text/css" rel="stylesheet" href="/Content/css/FormExample.min.css" />
 <script src="/Scripts/jquery-1.10.2.min.js"></script>
 <script src="/Content/js/FormExample.js"></script>
+
+<p>
+    控制自定义select之间切换的办法：
+    初始化函数-传入状态值
+    var ini = function(status){
+        if(status != 1)//除了第一个select
+        {
+            //收起
+        }
+        if(status != 2)//除了第二个select
+        {
+            //收起
+        }
+        ...
+    }
+    body点击时，传入0，表示全体初始化
+    select点击时，根据自身状态收起或展开
+</p>
+
 <div class="FormExample">
     <div class="FormExample-banner"></div>
     <div class="FormExample-container" style="height:628px;">
