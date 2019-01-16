@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SDK.yop.client;
+using SDK.yop.utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -356,5 +361,138 @@ namespace WebApplication1.Controllers
             return fileName.Substring(fileName.LastIndexOf('.') + 1);
         }
         #endregion
+
+        #region 银行卡支付
+        [ActionName("yopPay")]
+        public ActionResult YOPPay()
+        {
+            return View();
+        }
+
+        [ActionName("yopRequest")]
+        public ActionResult YOPRequest()
+        {
+            YOPModel yoppay = new YOPModel
+            {
+                requestNo = Request.Form["requestNo"].ToString(),
+                orderAmount = Request.Form["orderAmount"].ToString(),
+                fundAmount = Request.Form["fundAmount"].ToString(),
+                merchantOrderDate = Request.Form["merchantOrderDate"].ToString(),
+                bankCode = Request.Form["bankCode"].ToString(),
+                productName = Request.Form["productName"].ToString(),
+                productDesc = Request.Form["productDesc"].ToString(),
+                ip = staticUtil.GetRealIp()
+            };
+            YopRequest request = new YopRequest(yoppay.merchantNo, yoppay.privatekey, "https://open.yeepay.com/yop-center", yoppay.yopPublicKey);
+
+            request.addParam("requestNo", yoppay.requestNo);
+            request.addParam("orderAmount", yoppay.orderAmount);
+            request.addParam("fundAmount", yoppay.fundAmount);
+            request.addParam("payTool", yoppay.payTool);
+            request.addParam("merchantOrderDate", yoppay.merchantOrderDate);
+            request.addParam("bankCode", yoppay.bankCode);
+            request.addParam("serverCallbackUrl", yoppay.serverCallbackUrl);
+            request.addParam("webCallbackUrl", yoppay.webCallbackUrl + "?soid=" + yoppay.requestNo);
+            request.addParam("mcc", yoppay.mcc);
+            request.addParam("productCatalog", yoppay.productCatalog);
+            request.addParam("productName", yoppay.productName);
+            request.addParam("productDesc", yoppay.productDesc);
+            request.addParam("ip", yoppay.ip);
+
+            System.Diagnostics.Debug.WriteLine(request.toQueryString());
+            YopResponse response = YopClient3.postRsa("/rest/v1.0/payplus/order/consume", request);
+
+            if (response.isSuccess() && response.validSign)
+            {
+                //Response.Write("返回结果签名验证成功!" + "<br>");
+                //Response.Write("response.resul:" + response.result + "<br>");
+                JObject obj = (JObject)JsonConvert.DeserializeObject(response.result.ToString());
+                string requestNo = Convert.ToString(obj["requestNo"]);//订单号（唯一请求号）
+                string redirectUrl = Convert.ToString(obj["redirectUrl"]);//请求成功后返回的支付链接地址，自适应浏览器，商户处理跳转以完成支付。
+                string fundAmount = Convert.ToString(obj["fundAmount"]);//请求成功后返回，商户订单总金额
+                string status = Convert.ToString(obj["status"]);//状态 UNPAY-未支付 SUCCESS-支付成功
+                string code = Convert.ToString(obj["code"]);// 返回码
+                string message = Convert.ToString(obj["message"]);//返回码的详细说明
+                string divideCheck = Convert.ToString(obj["divideCheck"]);//实时分账状态 成功为 SUCCESS
+                string divideErrorMassage = Convert.ToString(obj["divideErrorMassage"]);//实时分账信息 成功为 分账校验通过
+                if (code.Equals("1"))
+                {
+                    return Redirect(redirectUrl);
+                }
+                else
+                {
+                    return Content(code + "  " + message);
+                }
+            }
+            else
+            {
+                string errorText = JsonConvert.SerializeObject(response.error);
+                return Content("请求失败，返回结果:" + errorText + "<br>");
+                //Response.Write("请求失败，返回结果:" + errorText + "<br>");
+            }
+        }
+
+        [ActionName("yopNotifyReturn")]
+        public ActionResult YOPNotifyReturn()
+        {
+            string response = Request.Params["response"];
+            YOPModel yoppay = new YOPModel();
+            string sourceData = SHA1withRSA.NoticeDecrypt(response, yoppay.privatekey, yoppay.yopPublicKey);
+            JObject obj = (JObject)JsonConvert.DeserializeObject(sourceData);//序列化
+
+            string requestNo = Convert.ToString(obj["requestNo"]);
+            string merchantUserId = Convert.ToString(obj["merchantUserId"]);
+            string orderAmount = Convert.ToString(obj["orderAmount"]);
+            string fundAmount = Convert.ToString(obj["fundAmount"]);
+            string paidAmount = Convert.ToString(obj["paidAmount"]);
+            string status = Convert.ToString(obj["status"]);
+            string payTool = Convert.ToString(obj["payTool"]);
+            string cardLast = Convert.ToString(obj["cardLast"]);
+            string cardType = Convert.ToString(obj["cardType"]);
+            string bankCode = Convert.ToString(obj["bankCode"]);
+            string couponInfo = Convert.ToString(obj["couponInfo"]);
+            string code = Convert.ToString(obj["code"]);
+            string message = Convert.ToString(obj["message"]);
+
+            string str = "";
+            if (status.Equals("SUCCESS") && code.Equals("1"))
+            {
+                //支付成功，写入数据库
+                str = "支付成功，写入数据库";
+            }
+            else
+            {
+                //支付失败
+                str = "支付失败";
+            }
+            //返回支付结果页
+            return Content(str);
+        }
+
+        [ActionName("yopReturn")]
+        public ActionResult YOPReturn()
+        {
+            string view = "";
+            string soid = Request.QueryString["soid"].ToString();
+            if (Request.UserAgent.ToLower().IndexOf("mobile") == -1)
+            {
+                //返回PC成功页
+                view = "PC";
+            }
+            else
+            {
+                //返回Mobile成功页
+                view = "Mobile";
+            }
+            view += ":支付成功,订单号为" + soid;
+            return Content(view);
+        }
+        #endregion
+
+        [ActionName("jsonTable")]
+        public ActionResult JsonTable()
+        {
+            return View();
+        }
     }
 }

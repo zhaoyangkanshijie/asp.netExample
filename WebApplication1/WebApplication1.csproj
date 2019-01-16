@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\YOPPay\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging">
       <HintPath>..\packages\Quartz\Common.Logging.dll</HintPath>
     </Reference>
@@ -169,6 +172,9 @@
     <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
+    <Reference Include="YOP.SDK">
+      <HintPath>..\packages\YOPPay\YOP.SDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -237,6 +243,7 @@
     <Compile Include="Models\r_admin.cs" />
     <Compile Include="Models\r_article.cs" />
     <Compile Include="Models\r_user.cs" />
+    <Compile Include="Models\YOPModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -377,10 +384,14 @@
     <Content Include="ShopIndex\package-lock.json" />
     <Content Include="ShopIndex\package.json" />
     <Content Include="Views\Home\DictionarySort.cshtml" />
+    <Content Include="Views\Home\YOPPay.cshtml" />
+    <Content Include="Views\Home\JsonTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\YOPPay\" />
     <Folder Include="Content\ppt\" />
+    <Folder Include="Document\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

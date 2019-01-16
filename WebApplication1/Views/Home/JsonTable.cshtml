@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "JsonTable";
+}
+
+<h2>json生成table</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    let jsonTable =
+        [
+            //一个表格下有很多个产品模型（标题）
+            {
+                "productModel": "产品模型",//需填写
+                "productModelDetail":
+                    [
+                        //产品模型下有多个产品分类（excel第一列）
+                        {
+                            "productClass": "产品分类",//需填写
+                            "productClassDetail":
+                                [
+                                    //产品分类下有多个产品保修期（excel第三列）
+                                    {
+                                        "productPeriod": "一年保换",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据
+                                    {
+                                        "productPeriod": "一年保修",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    }
+                                ],
+                            "productNumberSummary": 6//统计此产品分类下总的产品数量
+                        },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+                        {
+                            "productClass": "产品分类",//需填写
+                            "productClassDetail":
+                                [
+                                    //产品分类下有多个产品保修期（excel第三列）
+                                    {
+                                        "productPeriod": "一年保换",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+                                    {
+                                        "productPeriod": "一年保修",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    }
+                                ],
+                            "productNumberSummary": 6//统计此产品分类下总的产品数量
+                        }
+                    ]
+            },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+            {
+                "productModel": "产品模型",//需填写
+                "productModelDetail":
+                    [
+                        //产品模型下有多个产品分类（excel第一列）
+                        {
+                            "productClass": "产品分类",//需填写
+                            "productClassDetail":
+                                [
+                                    //产品分类下有多个产品保修期（excel第三列）
+                                    {
+                                        "productPeriod": "一年保换",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+                                    {
+                                        "productPeriod": "一年保修",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    }
+                                ],
+                            "productNumberSummary": 6//统计此产品分类下总的产品数量
+                        },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+                        {
+                            "productClass": "产品分类",//需填写
+                            "productClassDetail":
+                                [
+                                    //产品分类下有多个产品保修期（excel第三列）
+                                    {
+                                        "productPeriod": "一年保换",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    },//凡是遇到“}”，都可以接下来新增一个“,{}”，用来添加新数据，格式同上
+                                    {
+                                        "productPeriod": "一年保修",//需填写
+                                        //产品保修期下有多个产品（excel第二列）
+                                        "productName":
+                                            [
+                                                "产品名称...",//需填写
+                                                "产品名称...",//需填写
+                                                "产品名称..."//需填写
+                                            ],
+                                        "productNumberParticial": 3//统计此保修期内的产品数量
+                                    }
+                                ],
+                            "productNumberSummary": 6//统计此产品分类下总的产品数量
+                        }
+                    ]
+            }
+        ]
+</script>
+<script>
+    $(function () {
+        let tableClassName = "sell-table";
+        let tableData = jsonTable;//可修改为smbTable和securityTable，对应获取不同的数据
+        $("h2").append('<table class="' + tableClassName + '" border="1" cellspacing="0" cellpadding="0" width="100%"></table>');
+
+        for (let i = 0; i < tableData.length; i++) {
+            let tableString = '<tr class="productModel"><td colspan="3">' + tableData[i].productModel + '</td></tr>';
+            tableString += '<tr class="repairTableTitle"><td width="33%">产品类型</td><td width="34%">产品名称</td><td width="33%">保修期</td></tr>';
+
+            for (let j = 0; j < tableData[i].productModelDetail.length; j++) {
+                for (let k = 0; k < tableData[i].productModelDetail[j].productClassDetail.length; k++) {
+                    for (let m = 0; m < tableData[i].productModelDetail[j].productClassDetail[k].productName.length; m++) {
+                        if (k == 0) {
+                            if (m == 0) {
+                                tableString += '<tr><td rowspan="' + tableData[i].productModelDetail[j].productNumberSummary + '">' + tableData[i].productModelDetail[j].productClass + '</td>';
+                                tableString += '<td>' + tableData[i].productModelDetail[j].productClassDetail[k].productName[m] + '</td>';
+                                tableString += '<td rowspan="' + tableData[i].productModelDetail[j].productClassDetail[k].productNumberParticial + '">' + tableData[i].productModelDetail[j].productClassDetail[k].productPeriod + '</td></tr>';
+                            }
+                            else {
+                                tableString += '<tr><td>' + tableData[i].productModelDetail[j].productClassDetail[k].productName[m] + '</td></tr>';
+                            }
+                        }
+                        else {
+                            if (m == 0) {
+                                tableString += '<tr><td>' + tableData[i].productModelDetail[j].productClassDetail[k].productName[m] + '</td>';
+                                tableString += '<td rowspan="' + tableData[i].productModelDetail[j].productClassDetail[k].productNumberParticial + '">' + tableData[i].productModelDetail[j].productClassDetail[k].productPeriod + '</td></tr>';
+                            }
+                            else {
+                                tableString += '<tr><td>' + tableData[i].productModelDetail[j].productClassDetail[k].productName[m] + '</td></tr>';
+                            }
+                        }
+                    }
+                }
+            }
+            $("." + tableClassName).append(tableString);
+        }
+    });
+</script>

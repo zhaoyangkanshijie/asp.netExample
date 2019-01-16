@@ -1,0 +1,114 @@
+﻿
+@using Models;
+@using WebApplication1.Controllers.extends;
+@{
+    
+    ViewBag.Title = "YOPPay";
+    //应该自动生成订单号，并从数据库中获取金额、时间等数据
+    YOPModel yoppay = new YOPModel
+    {
+        requestNo = "000000001",
+        orderAmount = "0.01",
+        fundAmount = "0.01",
+        merchantOrderDate = "2019-01-01 00:00:00",
+        ip = staticUtil.GetRealIp()
+    };
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<style>
+    .bank {
+        display: inline-block;
+        width: 226px;
+        height: 64px;
+        border: 1px solid #CCCCCC;
+        border-radius: 2px;
+        cursor: pointer;
+        margin: 12px 10px 0 0;
+    }
+    .bank img {
+        display: block;
+        margin: 13px auto;
+    }
+</style>
+<h2>银行卡支付</h2>
+<p>以下相关资料可自行百度：</p>
+<ol>
+    <li>公钥和私钥生成方法：<a href="/Document/yop-isv-tools-mac-linux-1.0.4.zip">yop-isv-tools-mac-linux-{version}.zip</a></li>
+    <li>加密方式：sha1withrsa</li>
+    <li>.net demo：<a href="/Document/YOP-QM-Dotnet.zip">YOP-QM-Dotnet.zip</a></li>
+    <li>java demo：<a href="/Document/yop-java-sdk-3.1.3-jdk16.zip">yop-java-sdk-{version}-{jdk-version}.zip</a></li>
+    <li>接口说明：<a href="/Document/支付技术对接手册-全量版.docx">支付技术对接手册-全量版.docx</a></li>
+</ol>
+<form id="bankPayForm" action="/Home/YOP_Req" method="post" class="not-display">
+    <input id="requestNo" name="requestNo" type="text" value="@yoppay.requestNo" placeholder="订单号（唯一请求号）" />
+    <input id="orderAmount" name="orderAmount" type="text" value="@yoppay.orderAmount" placeholder="订单金额" />
+    <input id="fundAmount" name="fundAmount" type="text" value="@yoppay.fundAmount" placeholder="需支付金额" />
+    <input id="merchantOrderDate" name="merchantOrderDate" type="text" value="@yoppay.merchantOrderDate" placeholder="下单时间" />
+    <input id="bankCode" name="bankCode" type="text" value="CMBCHINA" placeholder="指定银行编码" />
+    <input id="productName" name="productName" type="text" value="product name" placeholder="商品名称" />
+    <input id="productDesc" name="productDesc" type="text" value="product description" placeholder="商品描述" />
+</form>
+<div class="payList">
+    <div class="bank" id="CMBCHINA" data-name="招商银行">
+        <img src="/Content/images/YOPPay/pay01.jpg" alt="招商银行" />
+    </div>
+    <div class="bank" id="ICBC" data-name="工商银行">
+        <img src="/Content/images/YOPPay/pay02.jpg" alt="工商银行" />
+    </div>
+    <div class="bank" id="CCB" data-name="建设银行">
+        <img src="/Content/images/YOPPay/pay03.jpg" alt="建设银行" />
+    </div>
+    <div class="bank" id="BOC" data-name="中国银行">
+        <img src="/Content/images/YOPPay/pay04.jpg" alt="中国银行" />
+    </div>
+    <div class="bank" id="BOCO" data-name="交通银行">
+        <img src="/Content/images/YOPPay/pay05.jpg" alt="交通银行" />
+    </div>
+    <div class="bank" id="ABC" data-name="农业银行">
+        <img src="/Content/images/YOPPay/pay06.jpg" alt="农业银行" />
+    </div>
+    <div class="bank" id="PSBC" data-name="邮政储蓄">
+        <img src="/Content/images/YOPPay/pay07.jpg" alt="邮政储蓄" />
+    </div>
+    <div class="bank" id="ECITIC" data-name="中信银行">
+        <img src="/Content/images/YOPPay/pay08.jpg" alt="中信银行" />
+    </div>
+    <div class="bank" id="CEB" data-name="光大银行">
+        <img src="/Content/images/YOPPay/pay09.jpg" alt="光大银行" />
+    </div>
+    <div class="bank" id="HXB" data-name="华厦银行">
+        <img src="/Content/images/YOPPay/pay10.jpg" alt="华厦银行" />
+    </div>
+    <div class="bank" id="CMBC" data-name="民生银行">
+        <img src="/Content/images/YOPPay/pay11.jpg" alt="民生银行" />
+    </div>
+    @*<div class="bank" id="null" data-name="广东发展银行">
+        <img src="/Content/images/YOPPay/pay12.jpg" alt="广东发展银行"/>
+    </div>*@
+    <div class="bank" id="CIB" data-name="兴业银行">
+        <img src="/Content/images/YOPPay/pay13.jpg" alt="兴业银行" />
+    </div>
+    <div class="bank" id="SPDB" data-name="浦发银行">
+        <img src="/Content/images/YOPPay/pay14.jpg" alt="浦发银行" />
+    </div>
+    <div class="bank" id="SZPA" data-name="平安银行">
+        <img src="/Content/images/YOPPay/pay15.jpg" alt="平安银行" />
+    </div>
+    <div class="bank" id="GDB" data-name="广发银行">
+        <img src="/Content/images/YOPPay/pay16.jpg" alt="广发银行" />
+    </div>
+    <div class="bank" id="BCCB" data-name="北京银行">
+        <img src="/Content/images/YOPPay/pay17.jpg" alt="北京银行" />
+    </div>
+    <div class="bank" id="SHB" data-name="上海银行">
+        <img src="/Content/images/YOPPay/pay18.jpg" alt="上海银行" />
+    </div>
+</div>
+<script>
+    $(() => {
+        $(".bank").on('click', function () {
+            $("#bankCode").val($(this).attr("id"));
+            $('#bankPayForm').submit();
+        });
+    });
+</script>

@@ -65,3 +65,5 @@ D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.HighLight.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.Lucene.Analyzer.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.xml
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\YOP.SDK.dll
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\BouncyCastle.Crypto.dll

@@ -155,6 +155,41 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "yopPay",
+                "home/yopPay",
+                new { controller = "home", action = "yopPay" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "yopRequest",
+                "home/yopRequest",
+                new { controller = "home", action = "yopRequest" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "yopNotifyReturn",
+                "home/yopNotifyReturn",
+                new { controller = "home", action = "yopNotifyReturn" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "yopReturn",
+                "home/yopReturn",
+                new { controller = "home", action = "yopReturn" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "jsonTable",
+                "home/jsonTable",
+                new { controller = "home", action = "jsonTable" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
