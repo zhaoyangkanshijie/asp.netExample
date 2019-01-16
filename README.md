@@ -33,4 +33,4 @@
 
 ## 期待更多扩展
 1. 支付接口：微信、支付宝
-2. pdf导出
+2. [pdf导出](https://github.com/RyougiChan/HTML2PDF-netcore)
