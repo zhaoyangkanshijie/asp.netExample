@@ -224,6 +224,7 @@
     <Compile Include="Controllers\extends\Job.cs" />
     <Compile Include="Controllers\extends\staticUtil.cs" />
     <Compile Include="Controllers\extends\Util.cs" />
+    <Compile Include="Controllers\extends\MyValidateCode.cs" />
     <Compile Include="Controllers\extends\ValidateCode.cs" />
     <Compile Include="Controllers\extends\WebApplication1AdaptiveAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />

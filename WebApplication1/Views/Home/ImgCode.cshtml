@@ -3,6 +3,28 @@
     ViewBag.Title = "ImgCode";
 }
 
-<h2>图形验证码</h2>
+<h2>图形验证码(区分大小写)</h2>
 
-<img src="/home/code" />
+<form action="/home/imgCode" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="text" name="checkcode" maxlength="4" pattern="[0-9a-zA-Z]{4}" title="格式不正确" required />
+        <img src="/home/code" />
+    </div>
+    <div>
+        <input type="text" name="ValidateCode" maxlength="4" pattern="[0-9a-zA-Z]{4}" title="格式不正确" required />
+        <img src="/home/mycode" />
+    </div>
+    <input type="submit" value="提交" />
+</form>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var msg = "@(ViewData["msg"] == null ? "" : ViewData["msg"].ToString())";
+            if (msg != "") {
+                alert(msg);
+            }
+        });
+    </script>
+}

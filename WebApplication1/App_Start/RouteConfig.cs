@@ -85,6 +85,13 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "myCode",
+                "home/myCode",
+                new { controller = "home", action = "myCode" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 "imgcode",
                 "home/imgcode",
                 new { controller = "home", action = "imgcode" },

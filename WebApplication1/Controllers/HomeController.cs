@@ -268,9 +268,48 @@ namespace WebApplication1.Controllers
             return File(bytes, @"image/jpeg");
         }
 
+        [ActionName("myCode")]
+        public ActionResult MyCode()
+        {
+            MyValidateCode vCode = new MyValidateCode();
+            string code = vCode.CreateValidateCode(4);
+            Session["ValidateCode"] = code;
+            byte[] bytes = vCode.CreateValidateGraphic(code);
+            return File(bytes, @"image/jpeg");
+        }
+
         [ActionName("imgCode")]
         public ActionResult ImgCode()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("imgCode")]
+        public ActionResult ImgCode(FormCollection form)
+        {
+            string checkcode = form["checkcode"].ToString();
+            string ValidateCode = form["ValidateCode"].ToString();
+            string msg = "";
+            if (Session["checkcode"].ToString().Equals(checkcode))
+            {
+                msg += "第一行验证码正确,";
+            }
+            else
+            {
+                msg += "第一行验证码不正确,";
+            }
+            if (Session["ValidateCode"].ToString().Equals(ValidateCode))
+            {
+                msg += "第二行验证码正确";
+            }
+            else
+            {
+                msg += "第二行验证码不正确";
+            }
+
+            ViewData["msg"] = msg;
+
             return View();
         }
         #endregion
