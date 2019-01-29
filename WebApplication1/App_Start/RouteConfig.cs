@@ -197,6 +197,20 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "uEditor",
+                "home/uEditor",
+                new { controller = "home", action = "uEditor" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "uEditorShow",
+                "home/uEditorShow",
+                new { controller = "home", action = "uEditorShow" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

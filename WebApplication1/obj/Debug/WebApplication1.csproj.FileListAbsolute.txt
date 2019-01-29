@@ -81,3 +81,4 @@ D:\项目\asp.netExample\WebApplication1\bin\PanGu.Lucene.Analyzer.dll
 D:\项目\asp.netExample\WebApplication1\bin\PanGu.xml
 D:\项目\asp.netExample\WebApplication1\bin\BouncyCastle.Crypto.dll
 D:\项目\asp.netExample\WebApplication1\bin\YOP.SDK.dll
+D:\项目\asp.netExample\WebApplication1\bin\Newtonsoft.Json.pdb

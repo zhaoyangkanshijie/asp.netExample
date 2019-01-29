@@ -76,6 +76,13 @@ namespace WebApplication1.Dal
         {
             get { return _userRepository ?? (_userRepository = new UserRepository(_context)); }
         }
+
+        private UEditorRepository _uEditorRepository;
+
+        public UEditorRepository UEditorRepository
+        {
+            get { return _uEditorRepository ?? (_uEditorRepository = new UEditorRepository(_context)); }
+        }
         #endregion
     }
 }

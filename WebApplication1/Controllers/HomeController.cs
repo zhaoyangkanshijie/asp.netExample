@@ -19,20 +19,30 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        static HomeController()
+        public HomeController() : base()
         {
             //Util util = new Util();
             //util.ScheduleStart();
+            WebUnity = new UnitOfWork();
+        }
+
+        private UnitOfWork WebUnity;
+
+        public new void Dispose()
+        {
+            base.Dispose();
+            WebUnity.Dispose();
         }
 
         [ActionName("index")]
         [WebApplication1Adaptive]
         public ActionResult Index()
         {
-            UnitOfWork WebUnity = new UnitOfWork();
+            //需要配置正确web.config中的connectionStrings mysql连接，否则会报错，报错可注释，只保留return View();
             List<r_user> r_userlist = WebUnity.UserRepository.Get().ToList<r_user>();
-
+            WebUnity.Dispose();
             ViewData["list"] = r_userlist;
+
             return View();
         }
 
@@ -531,6 +541,37 @@ namespace WebApplication1.Controllers
         [ActionName("jsonTable")]
         public ActionResult JsonTable()
         {
+            return View();
+        }
+
+        [ActionName("uEditor")]
+        public ActionResult UEditor()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("uEditor")]
+        public ActionResult UEditor(FormCollection form)
+        {
+            ueditor ueditor = new ueditor()
+            {
+                content = form["content"].ToString()
+            };
+            WebUnity.UEditorRepository.Insert(ueditor);
+            WebUnity.Save();
+            WebUnity.Dispose();
+
+            return View();
+        }
+
+        [ActionName("uEditorShow")]
+        public ActionResult UEditorShow()
+        {
+            List<ueditor> ueditor = WebUnity.UEditorRepository.Get().ToList<ueditor>();
+            WebUnity.Dispose();
+            ViewData["ueditor"] = ueditor;
+
             return View();
         }
     }

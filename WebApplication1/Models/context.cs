@@ -15,6 +15,7 @@ namespace WebApplication1.Models
         public virtual DbSet<r_admin> r_admin { get; set; }
         public virtual DbSet<r_article> r_article { get; set; }
         public virtual DbSet<r_user> r_user { get; set; }
+        public virtual DbSet<ueditor> ueditor { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -104,6 +105,10 @@ namespace WebApplication1.Models
 
             modelBuilder.Entity<r_user>()
                 .Property(e => e.latestLoginIP)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ueditor>()
+                .Property(e => e.content)
                 .IsUnicode(false);
         }
     }
