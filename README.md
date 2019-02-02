@@ -35,3 +35,25 @@
 ## 期待更多扩展
 1. 支付接口：微信、支付宝
 2. [pdf导出](https://github.com/RyougiChan/HTML2PDF-netcore)
+
+## 页面效果
+
+1. PC首页:index
+
+![PC首页](./effects/PC-index.jpg)
+
+2. 字典序排列省市:DictionarySort
+
+![DictionarySort](./effects/DictionarySort.gif)
+
+3. 图形验证码:imgcode
+
+![imgcode](./effects/imgcode.gif)
+
+4. 百度富文本编辑器:uEditor
+
+![百度富文本编辑器](./effects/uEditor.jpg)
+
+* 数据库结果
+
+![数据库结果](./effects/fullTextDB.jpg)
