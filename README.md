@@ -21,7 +21,7 @@
 17. 图形验证码
 18. 视频canvas ffps
 19. opener和fileReader
-20. smtp和exchange发送邮件
+20. smtp/exchange/mailkit发送邮件
 21. 反序列化字符串
 22. lucene全文搜索架构
 23. 商城静态首页样例（后续可能会用框架改写），自动补全，flex，border-box

@@ -13,6 +13,8 @@ using System.Web.Script.Serialization;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.Exchange.WebServices.Data;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace WebApplication1.Controllers.extends
 {
@@ -217,6 +219,56 @@ namespace WebApplication1.Controllers.extends
             msg.To.Add(recipient);//添加收件人
 
             client.Send(msg);
+        }
+
+        public static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
+
+        public static string sendEmail(string email, string mailSubject, string mailBody)
+        {
+            string fromName = "zhaoyangkanshijie";
+            string fromEmail = "zhaoyangkanshijie@zhaoyangkanshijie.com.cn";
+            string client = "smtp.zhaoyangkanshijie.com.cn";
+            string mailAccount = "zhaoyangkanshijie@zhaoyangkanshijie.com.cn";
+            string mailPassword = "zhaoyangkanshijie";
+            try
+            {
+                ServicePointManager.ServerCertificateValidationCallback = ValidateServerCertificate;
+                var message = new MailMessage
+                {
+                    From = new MailAddress(fromEmail, fromName)
+                };
+                if (email.IndexOf(";") > 0)
+                {
+                    foreach (var str in email.Substring(0, email.Length - 1).Split(';').Where(str => !string.IsNullOrEmpty(str)))
+                    {
+                        message.To.Add(str);
+                    }
+                }
+                else
+                {
+                    message.To.Add(email);
+                }
+                message.Subject = mailSubject;
+                message.BodyEncoding = Encoding.GetEncoding("utf-8");
+                message.Priority = MailPriority.Normal;
+                message.Body = mailBody;
+                message.IsBodyHtml = true;
+                new SmtpClient(client)
+                {
+                    UseDefaultCredentials = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new NetworkCredential(mailAccount, mailPassword),
+                    Timeout = 0xc350
+                }.Send(message);
+            }
+            catch (Exception exception)
+            {
+                return exception.ToString();
+            }
+            return "success";
         }
         #endregion
 
