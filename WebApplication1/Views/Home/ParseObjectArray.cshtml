@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ParseObjectArray";
+    List<Dictionary<string, string>> data = ViewData["data"] as List<Dictionary<string, string>>;
+    int randomNumber = Convert.ToInt32(ViewData["number1"]);
+    int randomNumber2 = Convert.ToInt32(ViewData["number2"]);
+}
+
+<h2>解析对象数组</h2>
+<p>@randomNumber</p>
+<p>@randomNumber2</p>
+@{ 
+    for (int i = 0;i < data.Count; i++)
+    {
+        string key = "";
+        string value = "";
+        foreach(KeyValuePair<string, string> item in data[i])
+        {
+            <div>
+                @(item.Key + " : " + item.Value)
+            </div>
+        }
+        @:<br />
+    }
+}

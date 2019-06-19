@@ -54,7 +54,6 @@ D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\zh-Hans\System.Web.Http
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\zh-Hans\EntityFramework.resources.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\zh-Hans\System.Web.Http.WebHost.resources.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
-D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.csprojResolveAssemblyReference.cache
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.csproj.CoreCompileInputs.cache
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.csproj.CopyComplete
 D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.dll
@@ -67,3 +66,9 @@ D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\PanGu.xml
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\YOP.SDK.dll
 D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\BouncyCastle.Crypto.dll
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\MimeKit.dll
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\MailKit.dll
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\QRCoder.dll
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\MimeKit.xml
+D:\项目\asp.netExample\WebApplication1.Tests\bin\Debug\MailKit.xml
+D:\项目\asp.netExample\WebApplication1.Tests\obj\Debug\WebApplication1.Tests.csprojAssemblyReference.cache

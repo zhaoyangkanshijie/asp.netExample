@@ -65,7 +65,6 @@ D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.WebPages.Razor.r
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.Http.resources.dll
 D:\项目\asp.netExample\WebApplication1\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
-D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.dll
 D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.pdb
@@ -82,3 +81,10 @@ D:\项目\asp.netExample\WebApplication1\bin\PanGu.xml
 D:\项目\asp.netExample\WebApplication1\bin\BouncyCastle.Crypto.dll
 D:\项目\asp.netExample\WebApplication1\bin\YOP.SDK.dll
 D:\项目\asp.netExample\WebApplication1\bin\Newtonsoft.Json.pdb
+D:\项目\asp.netExample\WebApplication1\bin\MailKit.dll
+D:\项目\asp.netExample\WebApplication1\bin\MimeKit.dll
+D:\项目\asp.netExample\WebApplication1\bin\QRCoder.dll
+D:\项目\asp.netExample\WebApplication1\bin\System.Drawing.Common.dll
+D:\项目\asp.netExample\WebApplication1\bin\MailKit.xml
+D:\项目\asp.netExample\WebApplication1\bin\MimeKit.xml
+D:\项目\asp.netExample\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache

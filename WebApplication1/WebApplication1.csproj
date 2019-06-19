@@ -100,6 +100,9 @@
     <Reference Include="PanGu.Lucene.Analyzer">
       <HintPath>..\packages\PanGu.Lucene.Analyzer.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.5\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="Quartz">
       <HintPath>..\packages\Quartz\Quartz.dll</HintPath>
     </Reference>
@@ -108,6 +111,9 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime" />
@@ -277,6 +283,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\FormExample.min.css" />
+    <Content Include="Content\images\CreateImage\pink.jpg" />
+    <Content Include="Content\images\CreateImage\purple.jpg" />
+    <Content Include="Content\images\CreateImage\young.jpg" />
+    <Content Include="Content\images\CreateImage\orange.jpg" />
+    <Content Include="Content\images\CreateImage\yellow.jpg" />
     <Content Include="Content\images\FormExample\banner.jpg" />
     <Content Include="Content\images\FormExample\fold.png" />
     <Content Include="Content\images\FormExample\tick.png" />
@@ -684,6 +695,9 @@
     <Content Include="Views\Home\JsonTable.cshtml" />
     <Content Include="Views\Home\UEditor.cshtml" />
     <Content Include="Views\Home\UEditorShow.cshtml" />
+    <Content Include="Views\Home\RandomNumber.cshtml" />
+    <Content Include="Views\Home\ShowImage.cshtml" />
+    <Content Include="Views\Home\ParseObjectArray.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,9 +5,13 @@ using SDK.yop.client;
 using SDK.yop.utils;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -571,6 +575,102 @@ namespace WebApplication1.Controllers
             List<ueditor> ueditor = WebUnity.UEditorRepository.Get().ToList<ueditor>();
             WebUnity.Dispose();
             ViewData["ueditor"] = ueditor;
+
+            return View();
+        }
+
+        [ActionName("randomNumber")]
+        public ActionResult RandomNumber()
+        {
+            int[] arr = Util.GetRandomArray(10, 1, 10);
+            ViewData["arr"] = arr;
+
+            return View();
+        }
+
+        [ActionName("showImage")]
+        public ActionResult ShowImage()
+        {
+            return View();
+        }
+
+        [ActionName("qrCode")]
+        public ActionResult QRCode()
+        {
+            byte[] img = Util.GetQRCodeByLink("www.baidu.com");
+
+            return File(img, "image/jpeg");
+        }
+
+        [HttpGet]
+        [ActionName("webApiFile")]
+        public HttpResponseMessage WebApiFile()
+        {
+            byte[] img = Util.GetQRCodeByLink("www.baidu.com");
+            HttpResponseMessage resp = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(img)
+                //或者
+                //Content = new StreamContent(stream)
+            };
+            resp.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpg");
+            return resp;
+        }
+
+        [ActionName("createImage")]
+        public ActionResult CreateImage()
+        {
+            int randomNumber = Util.GetRandomArray(1, 1, 5)[0];
+            Bitmap mImg;
+            if(randomNumber == 1)
+            {
+                mImg = new Bitmap(Server.MapPath("/Content/images/CreateImage/orange.jpg"));
+            }
+            else if(randomNumber == 2)
+            {
+                mImg = new Bitmap(Server.MapPath("/Content/images/CreateImage/pink.jpg"));
+            }
+            else if (randomNumber == 3)
+            {
+                mImg = new Bitmap(Server.MapPath("/Content/images/CreateImage/purple.jpg"));
+            }
+            else if (randomNumber == 4)
+            {
+                mImg = new Bitmap(Server.MapPath("/Content/images/CreateImage/yellow.jpg"));
+            }
+            else
+            {
+                mImg = new Bitmap(Server.MapPath("/Content/images/CreateImage/young.jpg"));
+            }
+            Graphics g = Graphics.FromImage(mImg);
+            Font font = new Font("Arial", 34, FontStyle.Regular, GraphicsUnit.Pixel);
+            //SolidBrush bg = new SolidBrush(Color.FromArgb(100, Color.Black));
+            g.DrawString(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), font, new SolidBrush(Color.Black), 100, 100);
+            MemoryStream ms = new MemoryStream();
+            mImg.Save(ms, ImageFormat.Jpeg);
+
+            return File(ms.ToArray(), "image/jpeg");
+        }
+
+        [ActionName("parseObjectArray")]
+        public ActionResult ParseObjectArray()
+        {
+            int[] randomNumber = Util.GetRandomArray(2, 1, 10);
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+            for(int i = 0;i < randomNumber[0]; i++)
+            {
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                for (int j = 0; j < randomNumber[1]; j++)
+                {
+                    dic["time" + j.ToString()] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                list.Add(dic);
+            }
+            string json = new JavaScriptSerializer().Serialize(list);
+            List<Dictionary<string, string>> data = Util.ParseObjectArray(json);
+            ViewData["number1"] = randomNumber[0];
+            ViewData["number2"] = randomNumber[1];
+            ViewData["data"] = data;
 
             return View();
         }

@@ -15,6 +15,11 @@ using System.Net;
 using Microsoft.Exchange.WebServices.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using Newtonsoft.Json.Linq;
+using QRCoder;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace WebApplication1.Controllers.extends
 {
@@ -348,5 +353,99 @@ namespace WebApplication1.Controllers.extends
             return dic;
         }
         #endregion
+
+        /// <summary>
+        /// 写入内容
+        /// </summary>
+        /// <param name="infoMsg">要写入的信息</param>
+        public static void AppendInfoLog(string infoMsg)
+        {
+            string Folder = HttpContext.Current.Server.MapPath("~") + "/Logs/";
+            if (!Directory.Exists(Folder))
+                Directory.CreateDirectory(Folder);
+            string fileName = Folder + "Info_" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+            using (TextWriter fw = new StreamWriter(fileName, true))
+            {
+                try
+                {
+                    FileInfo fi = new FileInfo(fileName);
+                    fw.WriteLine("===========" + DateTime.Now.ToString() + "===========");
+                    fw.WriteLine(infoMsg);
+                    fw.WriteLine("======================");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    fw.Close();
+                    fw.Dispose();
+                }
+            }
+        }
+
+        // number随机数个数
+        // minNum随机数下限(包含)
+        // maxNum随机数上限(包含)
+        public static int[] GetRandomArray(int number, int minNum, int maxNum)
+        {
+            int j;
+            int[] b = new int[number];
+            Random r = new Random();
+            for (j = 0; j < number; j++)
+            {
+                int i = r.Next(minNum, maxNum + 1);
+                int num = 0;
+                for (int k = 0; k < j; k++)
+                {
+                    if (b[k] == i)
+                    {
+                        num = num + 1;
+                    }
+                }
+                if (num == 0)
+                {
+                    b[j] = i;
+                }
+                else
+                {
+                    j = j - 1;
+                }
+            }
+            return b;
+        }
+
+        //解析对象数组[{A:a,B:b,...},{},...]
+        public static List<Dictionary<string, string>> ParseObjectArray(string record)
+        {
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+            JArray jArray = JArray.Parse(record);
+            foreach (var item in jArray)
+            {
+                JObject itemObj = (JObject)item;
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                foreach (var obj in itemObj)
+                {
+                    dic[obj.Key] = HttpUtility.UrlDecode(obj.Value.ToString());
+                }
+                list.Add(dic);
+            }
+            return list;
+        }
+
+        //QRCoder根据链接生成二维码
+        public static byte[] GetQRCodeByLink(string link)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(link, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrcode = new QRCode(qrCodeData);
+
+            Bitmap qrCodeImage = qrcode.GetGraphic(5, Color.Black, Color.White, null, 15, 6, false);
+            MemoryStream ms = new MemoryStream();
+            qrCodeImage.Save(ms, ImageFormat.Jpeg);
+            qrCodeImage.Dispose();
+            return ms.ToArray();
+        }
     }
 }

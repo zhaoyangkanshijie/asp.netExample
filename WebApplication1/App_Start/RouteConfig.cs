@@ -211,6 +211,48 @@ namespace WebApplication1
             );
 
             routes.MapRoute(
+                "randomNumber",
+                "home/randomNumber",
+                new { controller = "home", action = "randomNumber" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "showImage",
+                "home/showImage",
+                new { controller = "home", action = "showImage" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "qrCode",
+                "home/qrCode",
+                new { controller = "home", action = "qrCode" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "webApiFile",
+                "home/webApiFile",
+                new { controller = "home", action = "webApiFile" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "createImage",
+                "home/createImage",
+                new { controller = "home", action = "createImage" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
+                "parseObjectArray",
+                "home/parseObjectArray",
+                new { controller = "home", action = "parseObjectArray" },
+                new string[] { "WebApplication1.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

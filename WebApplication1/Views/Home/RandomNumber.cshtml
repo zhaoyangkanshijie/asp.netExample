@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "RandomNumber";
+    int[] arr = ViewData["arr"] as int[];
+}
+
+<h2>生成指定范围不重复随机数</h2>
+@{ 
+    for(int i = 0;i < arr.Length; i++)
+    {
+        <p>@arr[i]</p>
+    }
+}
